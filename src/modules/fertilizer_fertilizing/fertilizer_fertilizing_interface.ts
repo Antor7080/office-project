@@ -1,5 +1,6 @@
 import { Document } from 'mongoose';
 export interface IFertilizerFertilizing extends Document {
+    generalInformationID?: string;
     landPreparationFertilizer: IlandPreparationFertilizer;
     fertilizerNameQuantity: IfertilizerNameQuantity;
     fertilizerNamePlant: IfertilizerNamePlant;

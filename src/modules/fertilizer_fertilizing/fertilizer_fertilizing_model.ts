@@ -2,6 +2,9 @@ import { Schema, model } from "mongoose";
 import { IFertilizerFertilizing } from "./fertilizer_fertilizing_interface";
 
 const FertilizerFertilizingSchema = new Schema<IFertilizerFertilizing>({
+    generalInformationID: {
+        type: Schema.Types.ObjectId,
+    },
     landPreparationFertilizer: {
         fertilizingTime: {
             type: String,
@@ -122,16 +125,18 @@ const FertilizerFertilizingSchema = new Schema<IFertilizerFertilizing>({
             type: Number
         },
         betelLeafOrganic: {
-            type: String
+            type: String,
+            enum : ["Cow dung", "Mustard Oil Cake"]
         },
         cowDungType: {
-            type: String
+            type: String,
+            enum: ["Wet", "Dry"]
         },
         fertilizerStored: {
             type: Boolean
         },
         fertilizerCollected: {
-            type: String, 
+            type: String,
         },
         isSuggestionsTaken: {
             type: Boolean

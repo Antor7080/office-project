@@ -57,7 +57,7 @@ const ProductionInformationSchema = new Schema<IproductionInformation>({
             type: Number
         },
         insectPathogenSymptoms: {
-            type: String
+            type: Boolean
         },
         seedlingAge: {
             type: Number

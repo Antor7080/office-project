@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getGeneralInformationByIDService = exports.getGeneralInformationService = exports.addGeneralInformationService = void 0;
+exports.findOneQuery = exports.getGeneralInformationService = exports.addGeneralInformationService = void 0;
 const genarel_information_model_1 = __importDefault(require("./genarel_information_model"));
 const addGeneralInformationService = (information) => {
     const newInformation = new genarel_information_model_1.default(information);
@@ -30,11 +30,11 @@ exports.getGeneralInformationService = getGeneralInformationService;
  * @param id  get general information by id
  * @returns
  */
-const getGeneralInformationByIDService = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    const allInformation = yield genarel_information_model_1.default.findById(id);
+const findOneQuery = (query) => __awaiter(void 0, void 0, void 0, function* () {
+    const allInformation = yield genarel_information_model_1.default.findOne(query);
     if (!allInformation) {
         return null;
     }
     return allInformation;
 });
-exports.getGeneralInformationByIDService = getGeneralInformationByIDService;
+exports.findOneQuery = findOneQuery;

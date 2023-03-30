@@ -119,7 +119,7 @@ const addProductionInformation = (req, res, next) => __awaiter(void 0, void 0, v
         if (!generalInformationID) {
             throw new errors_1.ApiError((0, responseHandler_1.unProcessable)(), 'General Information ID is Required');
         }
-        const isProductionInformationExist = yield (0, production_information_service_1.getProductionInformationByGeneralInformationID)(generalInformationID);
+        const isProductionInformationExist = yield (0, production_information_service_1.getOneQuary)({ generalInformationID });
         if (isProductionInformationExist) {
             throw new errors_1.ApiError((0, responseHandler_1.unProcessable)(), 'Production Information Already Exist');
         }
@@ -189,7 +189,8 @@ exports.addProductionInformation = addProductionInformation;
 const getProductionInformation = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
-        const productionInformation = yield (0, production_information_service_1.getProductionInformationByGeneralInformationID)(id);
+        const productionInformation = yield (0, production_information_service_1.getOneQuary)({ _id: id });
+        console.log(productionInformation);
         if (!productionInformation) {
             throw new errors_1.ApiError((0, responseHandler_1.notFound)(), 'Production Information Not Found');
         }

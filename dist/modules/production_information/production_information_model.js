@@ -54,7 +54,7 @@ const ProductionInformationSchema = new mongoose_1.Schema({
             type: Number
         },
         insectPathogenSymptoms: {
-            type: String
+            type: Boolean
         },
         seedlingAge: {
             type: Number

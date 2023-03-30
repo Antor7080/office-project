@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = require("mongoose");
 const FertilizerFertilizingSchema = new mongoose_1.Schema({
+    generalInformationID: {
+        type: mongoose_1.Schema.Types.ObjectId,
+    },
     landPreparationFertilizer: {
         fertilizingTime: {
             type: String,
@@ -120,10 +123,12 @@ const FertilizerFertilizingSchema = new mongoose_1.Schema({
             type: Number
         },
         betelLeafOrganic: {
-            type: String
+            type: String,
+            enum: ["Cow dung", "Mustard Oil Cake"]
         },
         cowDungType: {
-            type: String
+            type: String,
+            enum: ["Wet", "Dry"]
         },
         fertilizerStored: {
             type: Boolean

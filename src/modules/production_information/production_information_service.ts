@@ -11,7 +11,8 @@ export const getProductionInformationById = async (id: string): Promise<Iproduct
     return productionInfo;
 };
 
-export const getProductionInformationByGeneralInformationID = async (generalInformationID: string): Promise<IproductionInformation | null> => {
-    const productionInfo = await ProductionInformationModel.findOne({ generalInformationID });
+export const getOneQuary = async (query: object): Promise<IproductionInformation | null> => {
+    const productionInfo = await ProductionInformationModel.findOne(query);
     return productionInfo;
 }
+// generalInformationID

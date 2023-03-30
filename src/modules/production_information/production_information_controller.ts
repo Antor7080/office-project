@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { ApiError } from '../../errors';
 import { notFound, unProcessable } from '../../helpers/responseHandler';
 import IproductionInformation from './production_information_interface';
-import { addProductionInformationService, getProductionInformationByGeneralInformationID } from './production_information_service';
+import { addProductionInformationService, getOneQuary } from './production_information_service';
 
 
 /**
@@ -111,7 +111,7 @@ export const addProductionInformation = async (req: Request, res: Response, next
         if (!generalInformationID) {
             throw new ApiError(unProcessable(), 'General Information ID is Required')
         }
-        const isProductionInformationExist: IproductionInformation | null = await getProductionInformationByGeneralInformationID(generalInformationID);
+        const isProductionInformationExist: IproductionInformation | null = await getOneQuary({ generalInformationID });
         if (isProductionInformationExist) {
             throw new ApiError(unProcessable(), 'Production Information Already Exist')
         }
@@ -180,7 +180,8 @@ export const addProductionInformation = async (req: Request, res: Response, next
 export const getProductionInformation = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const id: string = req.params.id;
-        const productionInformation: IproductionInformation | null = await getProductionInformationByGeneralInformationID(id);
+        const productionInformation: IproductionInformation | null = await getOneQuary({ _id: id });
+        console.log(productionInformation);
         if (!productionInformation) {
             throw new ApiError(notFound(), 'Production Information Not Found')
         };

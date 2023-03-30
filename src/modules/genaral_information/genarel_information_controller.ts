@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from 'express';
 import { ApiError } from '../../errors';
 import { notFound } from '../../helpers/responseHandler';
 import { IGenarelInformation } from './genarel_information_interface';
-import { addGeneralInformationService, getGeneralInformationByIDService, getGeneralInformationService } from './genarel_information_services';
+import { addGeneralInformationService, findOneQuery, getGeneralInformationService } from './genarel_information_services';
 
 export const addGeneralInformation = (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -25,7 +25,7 @@ export const getGeneralInformation = async (req: Request, res: Response, next: N
 export const getGeneralInformationById = async (req: Request, res: Response, next: NextFunction) => {
     const id: string = req.params.id;
     try {
-        const allGenarelInformation: IGenarelInformation | null = await getGeneralInformationByIDService(id);
+        const allGenarelInformation: IGenarelInformation | null = await findOneQuery({ _id: id });
         if (!allGenarelInformation) {
             throw new ApiError(notFound(), 'General Information Not Found')
         }

@@ -36,7 +36,7 @@ exports.getGeneralInformation = getGeneralInformation;
 const getGeneralInformationById = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const id = req.params.id;
     try {
-        const allGenarelInformation = yield (0, genarel_information_services_1.getGeneralInformationByIDService)(id);
+        const allGenarelInformation = yield (0, genarel_information_services_1.findOneQuery)({ _id: id });
         if (!allGenarelInformation) {
             throw new errors_1.ApiError((0, responseHandler_1.notFound)(), 'General Information Not Found');
         }

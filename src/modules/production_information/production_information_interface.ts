@@ -33,7 +33,7 @@ interface IraisingOfSeedlings {
     biofertilizerAmount: number;
     isOtherUsed: boolean;
     otherAmount: number;
-    insectPathogenSymptoms: string;
+    insectPathogenSymptoms: boolean;
     seedlingAge: number;
 };
 interface IlandPreparation {

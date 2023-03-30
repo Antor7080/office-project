@@ -14,8 +14,8 @@ export const getGeneralInformationService = (): Promise<IGenarelInformation[]> =
  * @param id  get general information by id
  * @returns 
  */
-export const getGeneralInformationByIDService = async (id: string): Promise<IGenarelInformation | null> => {
-    const allInformation = await GenarelInformation.findById(id);
+export const findOneQuery = async (query: object): Promise<IGenarelInformation | null> => {
+    const allInformation = await GenarelInformation.findOne(query);
     if (!allInformation) {
         return null;
     }

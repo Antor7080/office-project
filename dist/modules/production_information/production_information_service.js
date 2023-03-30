@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProductionInformationByGeneralInformationID = exports.getProductionInformationById = exports.addProductionInformationService = void 0;
+exports.getOneQuary = exports.getProductionInformationById = exports.addProductionInformationService = void 0;
 const production_information_model_1 = __importDefault(require("./production_information_model"));
 const addProductionInformationService = (information) => __awaiter(void 0, void 0, void 0, function* () {
     const newInformation = new production_information_model_1.default(information);
@@ -25,8 +25,9 @@ const getProductionInformationById = (id) => __awaiter(void 0, void 0, void 0, f
     return productionInfo;
 });
 exports.getProductionInformationById = getProductionInformationById;
-const getProductionInformationByGeneralInformationID = (generalInformationID) => __awaiter(void 0, void 0, void 0, function* () {
-    const productionInfo = yield production_information_model_1.default.findOne({ generalInformationID });
+const getOneQuary = (query) => __awaiter(void 0, void 0, void 0, function* () {
+    const productionInfo = yield production_information_model_1.default.findOne(query);
     return productionInfo;
 });
-exports.getProductionInformationByGeneralInformationID = getProductionInformationByGeneralInformationID;
+exports.getOneQuary = getOneQuary;
+// generalInformationID
