@@ -28,7 +28,7 @@ const genarelInformationSchema = new mongoose_1.Schema({
     farmingSystem: {
         system: {
             type: String,
-            enum: ["Single", "Coorperative"]
+            enum: ["Single", "Cooperative"]
         },
         totalFarmers: {
             type: Number

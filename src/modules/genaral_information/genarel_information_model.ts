@@ -28,7 +28,7 @@ const genarelInformationSchema: Schema = new Schema<IGenarelInformation>({
     farmingSystem: {
         system: {
             type: String,
-            enum: ["Single", "Coorperative"]
+            enum: ["Single", "Cooperative"]
         },
         totalFarmers: {
             type: Number

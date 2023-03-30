@@ -15,7 +15,7 @@ const genarelInformationValidation = joi_1.default.object({
         district: joi_1.default.string().required(),
     }).required(),
     farmingSystem: joi_1.default.object({
-        system: joi_1.default.string().valid('Single', 'Coorperative').required(),
+        system: joi_1.default.string().valid('Single', 'Cooperative').required(),
         totalFarmers: joi_1.default.number().required(),
         leaderName: joi_1.default.string().required(),
         groupTotalLand: joi_1.default.number().required(),

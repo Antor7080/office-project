@@ -12,7 +12,7 @@ const genarelInformationValidation = Joi.object({
         district: Joi.string().required(),
     }).required(),
     farmingSystem: Joi.object({
-        system: Joi.string().valid('Single', 'Coorperative').required(),
+        system: Joi.string().valid('Single', 'Cooperative').required(),
         totalFarmers: Joi.number().required(),
         leaderName: Joi.string().required(),
         groupTotalLand: Joi.number().required(),
