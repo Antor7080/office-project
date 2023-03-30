@@ -1,4 +1,5 @@
-export interface IFertilizerFertilizing {
+import { Document } from 'mongoose';
+export interface IFertilizerFertilizing extends Document {
     landPreparationFertilizer: IlandPreparationFertilizer;
     fertilizerNameQuantity: IfertilizerNameQuantity;
     fertilizerNamePlant: IfertilizerNamePlant;
@@ -53,6 +54,6 @@ interface ItimeOfFertilizerApplicationQuantity {
     betelLeafOrganic: string;
     cowDungType: string;
     fertilizerStored: boolean;
-    fertilizerCollcected: 'Dealer' | 'Retailer';
+    fertilizerCollected: string;
     isSuggestionsTaken: boolean;
 };
