@@ -1,0 +1,16 @@
+{
+    "farm": {
+        "dbConfig": {
+            "host": "localhost",
+            "port": 5000,
+            "dbName": "farm",
+            "connectionString": "mongodb+srv://sbexpress:Antor007@cluster0.p0mef.mongodb.net/farm?retryWrites=true&w=majority"
+        },
+        "tokenConfig": {
+            "accessTokenSecret": "fhkgfigergegfhdghwqge9rtgfkehfwipejkwfg473653478triwgfwp9yrg3p49utgfeihwfgwoi4tgfoyifgpweryp49ugfwieofgweif 4",
+            "refreshTokenSecret": "fhkgfigergegfhdghwqge9rtgfkehfwipejkwfg47365fjkegoeprgkjgefjoruokjgerhgrlghhgkjshjsdhgjkshgorhjgjkjruweruwur 4",
+            "accessTokenLife": "1h",
+            "refreshTokenLife": "1y"
+        }
+    }
+}
