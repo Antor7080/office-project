@@ -21,6 +21,8 @@ const productionInformationSchema = Joi.object({
         biofertilizerAmount: Joi.number().required(),
         isOtherUsed: Joi.boolean().required(),
         otherAmount: Joi.number().required(),
+        insectPathogenSymptoms: Joi.boolean().required(),
+        seedlingAge: Joi.number().required(),
     }).required(),
     landPreparation: Joi.object({
         plough: Joi.string().required(),
@@ -29,7 +31,8 @@ const productionInformationSchema = Joi.object({
     showingTransplanting: Joi.object({
         seedSource: Joi.string().required(),
         seedTreatment: Joi.boolean().required(),
-        fungicideName: Joi.string().required(),
+        //fungicideName is optional
+        fungicideName: Joi.string().optional(),
         sowingType: Joi.string().valid('Direcet Sowing', 'Seedling raised in seedbed').required(),
         plantDistance: Joi.number().required(),
         rowDistance: Joi.number().required(),

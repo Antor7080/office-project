@@ -56,6 +56,12 @@ const ProductionInformationSchema = new Schema<IproductionInformation>({
         otherAmount: {
             type: Number
         },
+        insectPathogenSymptoms: {
+            type: String
+        },
+        seedlingAge: {
+            type: Number
+        }
     },
 
     landPreparation: {
@@ -74,7 +80,7 @@ const ProductionInformationSchema = new Schema<IproductionInformation>({
             type: Boolean
         },
         fungicideName: {
-            type: String
+            type: String || undefined
         },
         sowingType: {
             type: String,

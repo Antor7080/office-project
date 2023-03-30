@@ -53,6 +53,12 @@ const ProductionInformationSchema = new mongoose_1.Schema({
         otherAmount: {
             type: Number
         },
+        insectPathogenSymptoms: {
+            type: String
+        },
+        seedlingAge: {
+            type: Number
+        }
     },
     landPreparation: {
         plough: {
@@ -70,7 +76,7 @@ const ProductionInformationSchema = new mongoose_1.Schema({
             type: Boolean
         },
         fungicideName: {
-            type: String
+            type: String || undefined
         },
         sowingType: {
             type: String,

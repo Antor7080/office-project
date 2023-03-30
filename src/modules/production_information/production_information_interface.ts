@@ -33,6 +33,8 @@ interface IraisingOfSeedlings {
     biofertilizerAmount: number;
     isOtherUsed: boolean;
     otherAmount: number;
+    insectPathogenSymptoms: string;
+    seedlingAge: number;
 };
 interface IlandPreparation {
     plough: string;
@@ -41,7 +43,7 @@ interface IlandPreparation {
 interface IshowingTransplanting {
     seedSource: string;
     seedTreatment: boolean;
-    fungicideName: string;
+    fungicideName?: string | undefined;
     sowingType: string;
     plantDistance: number;
     rowDistance: number;
