@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getFertilizerFertilizing = exports.addFertilizerFertilizing = void 0;
+exports.getFertilizerFertilizingByGeneralInformationID = exports.getFertilizerFertilizing = exports.addFertilizerFertilizing = void 0;
 const errors_1 = require("../../errors");
 const responseHandler_1 = require("../../helpers/responseHandler");
 const fertilizer_fertilizing_services_1 = require("./fertilizer_fertilizing_services");
@@ -61,3 +61,18 @@ const getFertilizerFertilizing = (req, res, next) => __awaiter(void 0, void 0, v
     }
 });
 exports.getFertilizerFertilizing = getFertilizerFertilizing;
+const getFertilizerFertilizingByGeneralInformationID = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = req.params.id;
+        const fertilizerFertilizing = yield (0, fertilizer_fertilizing_services_1.findOneQuery)({ generalInformationID: id });
+        if (!fertilizerFertilizing) {
+            throw new errors_1.ApiError((0, responseHandler_1.notFound)(), 'Fertilizer Fertilizing Not Found');
+        }
+        ;
+        res.ok(fertilizerFertilizing, 'Fertilizer Fertilizing Get Successfully');
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.getFertilizerFertilizingByGeneralInformationID = getFertilizerFertilizingByGeneralInformationID;

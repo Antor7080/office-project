@@ -52,7 +52,7 @@ const productionInformationSchema = Joi.object({
 
 const productionInformationValidator = (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { error } = productionInformationSchema.validate(req.body);
+        const { error } = productionInformationSchema.validate(req.body, { abortEarly: false });
         if (error) {
             next(error);
         }

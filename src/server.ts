@@ -8,6 +8,7 @@ import GenarelInformationRouter from "./modules/genaral_information/genarel_info
 import InterculturalOperationRouter from "./modules/intercultural_operation/intercultural_operation_router";
 import IrrigationSourceRouter from "./modules/irrigation_source/irrigation_source_router";
 import ProductionInformationrouter from "./modules/production_information/production_information_router";
+import FertilizerFertilizingRouter from "./modules/fertilizer_fertilizing/fertilizer_fertilizing_router";
 const server: Application = express();
 server.use(cors());
 server.use(express.json());
@@ -33,6 +34,7 @@ server.use('/api/genarel-information', GenarelInformationRouter);
 server.use('/api/production-information', ProductionInformationrouter);
 server.use('/api/irrigation-source', IrrigationSourceRouter);
 server.use('/api/intercultural-operation', InterculturalOperationRouter);
+server.use('/api/fertilizer-fertilizing', FertilizerFertilizingRouter);
 
 
 server.use(errorConverter);

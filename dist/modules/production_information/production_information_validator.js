@@ -51,7 +51,7 @@ const productionInformationSchema = Joi.object({
 });
 const productionInformationValidator = (req, res, next) => {
     try {
-        const { error } = productionInformationSchema.validate(req.body);
+        const { error } = productionInformationSchema.validate(req.body, { abortEarly: false });
         if (error) {
             next(error);
         }

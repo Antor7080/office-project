@@ -37,7 +37,9 @@ const interculturalOperationSchema = Joi.object({
 
 const interculturalOperationValidator = (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { error } = interculturalOperationSchema.validate(req.body);
+        const { error } = interculturalOperationSchema.validate(req.body, {
+            abortEarly: false
+        });
         if (error) {
             next(error);
         }

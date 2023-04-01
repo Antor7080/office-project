@@ -36,7 +36,13 @@ const irrigationSourceSchema = Joi.object({
 
 const irrigationSourceValidator = (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { error } = irrigationSourceSchema.validate(req.body);
+        const { error } = irrigationSourceSchema.validate(req.body, {
+            abortEarly: false, errors: {
+                wrap: {
+                    label: "",
+                }
+            }
+        });
         if (error) {
             next(error);
         }

@@ -13,6 +13,7 @@ const genarel_information_router_1 = __importDefault(require("./modules/genaral_
 const intercultural_operation_router_1 = __importDefault(require("./modules/intercultural_operation/intercultural_operation_router"));
 const irrigation_source_router_1 = __importDefault(require("./modules/irrigation_source/irrigation_source_router"));
 const production_information_router_1 = __importDefault(require("./modules/production_information/production_information_router"));
+const fertilizer_fertilizing_router_1 = __importDefault(require("./modules/fertilizer_fertilizing/fertilizer_fertilizing_router"));
 const server = (0, express_1.default)();
 server.use((0, cors_1.default)());
 server.use(express_1.default.json());
@@ -30,6 +31,7 @@ server.use('/api/genarel-information', genarel_information_router_1.default);
 server.use('/api/production-information', production_information_router_1.default);
 server.use('/api/irrigation-source', irrigation_source_router_1.default);
 server.use('/api/intercultural-operation', intercultural_operation_router_1.default);
+server.use('/api/fertilizer-fertilizing', fertilizer_fertilizing_router_1.default);
 server.use(errors_1.errorConverter);
 server.use(errors_1.errorHandler);
 const port = dbConfig.port;

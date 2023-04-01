@@ -50,3 +50,16 @@ export const getFertilizerFertilizing = async (req: Request, res: Response, next
         next(error)
     }
 };
+
+export const getFertilizerFertilizingByGeneralInformationID = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const id = req.params.id;
+        const fertilizerFertilizing = await findOneQuery({ generalInformationID: id });
+        if (!fertilizerFertilizing) {
+            throw new ApiError(notFound(), 'Fertilizer Fertilizing Not Found')
+        };
+        res.ok(fertilizerFertilizing, 'Fertilizer Fertilizing Get Successfully')
+    } catch (error) {
+        next(error)
+    }
+};
