@@ -12,11 +12,9 @@ const quarantinePestDiseseControlSchema = new Schema<IQuarantinePestDiseasesCont
         },
         isPestRiskAnalysis: {
             type: Boolean,
-
         },
         pestRiskAnalysis: {
             type: Number,
-
         },
 
     },
@@ -49,8 +47,8 @@ const quarantinePestDiseseControlSchema = new Schema<IQuarantinePestDiseasesCont
     },
     controlMeasures: {
         techniquesName: {
-            type: [String]
-
+            type: [String],
+            enum: ["Physical", "Biological", "Chemical", "Mechanical", "Bio Pesticide"]
         },
         isIntegration: {
             type: Boolean
@@ -116,7 +114,8 @@ const quarantinePestDiseseControlSchema = new Schema<IQuarantinePestDiseasesCont
             type: Boolean
         },
         pheromoneUsedTime: {
-            type: String
+            type: String,
+            enum: ["Before", "After"]
         },
         isCropPheromoneUsed: {
             type: Boolean
@@ -146,7 +145,8 @@ const quarantinePestDiseseControlSchema = new Schema<IQuarantinePestDiseasesCont
             type: Boolean
         },
         colorBag: {
-            type: String
+            type: String,
+            enum:["White", "Brown"]
         },
 
     },
