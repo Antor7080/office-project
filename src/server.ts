@@ -4,6 +4,7 @@ import express, { Application } from "express";
 import mongoose, { ConnectOptions } from "mongoose";
 import { errorConverter, errorHandler } from "./errors";
 import { responseHandler } from "./helpers/responseHandler";
+import CropsHarvestingRouter from "./modules/crops_hervesting/crops_hervesting_router";
 import FertilizerFertilizingRouter from "./modules/fertilizer_fertilizing/fertilizer_fertilizing_router";
 import GenarelInformationRouter from "./modules/genaral_information/genarel_information_router";
 import InterculturalOperationRouter from "./modules/intercultural_operation/intercultural_operation_router";
@@ -37,6 +38,7 @@ server.use('/api/irrigation-source', IrrigationSourceRouter);
 server.use('/api/intercultural-operation', InterculturalOperationRouter);
 server.use('/api/fertilizer-fertilizing', FertilizerFertilizingRouter);
 server.use('/api/quarantine-pests-diseases', QuarantinePestDiseasesRouter);
+server.use('/api/crops-harvesting', CropsHarvestingRouter);
 
 
 server.use(errorConverter);

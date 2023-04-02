@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const crops_hervesting_controller_1 = require("./crops_hervesting_controller");
+const crops_hervesting_validator_1 = require("./crops_hervesting_validator");
+const router = (0, express_1.Router)();
+router.post("/add", crops_hervesting_validator_1.cropsHarvestingValidator, crops_hervesting_controller_1.addCropsHarvestingController);
+router.get("/get/:id", crops_hervesting_controller_1.getOneById);
+router.get("/get-by-general-information-id/:id", crops_hervesting_controller_1.getOneByGeneralInformationId);
+exports.default = router;

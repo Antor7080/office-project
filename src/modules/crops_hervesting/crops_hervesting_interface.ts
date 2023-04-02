@@ -1,4 +1,11 @@
-interface ICropsHarvesting {
+export interface ICropsHarvesting {
+    generalInformationID?: string,
+    fieldSanitation: IFieldSanitation,
+    harvestField: IHarvestField,
+    vegetables: IVegetables,
+    mango: Imango,
+    betelLeaf: IBetelLeaf,
+    localCollectionCenter: ILocalCollectionCenter,
 
 }
 interface IFieldSanitation {
