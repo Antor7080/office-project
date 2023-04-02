@@ -3,7 +3,7 @@ import Joi from "joi";
 
 const irrigationSourceSchema = Joi.object({
     generalInformationID: Joi.string().required(),
-    waterSource: Joi.array().items(Joi.string().valid('River', 'Tube Well', 'Pond', 'Rain Water', 'Municipality', 'Deep Tube Well')).required(),
+    waterSource: Joi.array().items(Joi.string().valid('River', 'TubeWell', 'Pond', 'RainWater', 'Municipality', 'DeepTubeWell')).required(),
     pollutionFree: Joi.boolean().required(),
     testedSource: Joi.boolean().required(),
     infected: Joi.boolean().required(),
@@ -26,9 +26,9 @@ const irrigationSourceSchema = Joi.object({
     sewageWaterUsed: Joi.boolean().required(),
     tankDisinfection: Joi.boolean().required(),
     takenCooperation: Joi.boolean().required(),
-    arrigationTime: Joi.array().items(Joi.string()),
+    arrigationTime: Joi.string().valid("Morning", "Noon", "Evening").required(),
     suggestionTaken: Joi.boolean().required(),
-    irrigationMethod: Joi.array().items(Joi.string()),
+    irrigationMethod: Joi.string().required(),
     poperDrainage: Joi.boolean().required(),
     excessWaterDrainage: Joi.boolean().required()
 });

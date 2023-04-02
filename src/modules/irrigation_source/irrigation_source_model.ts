@@ -7,12 +7,12 @@ const IrrigationSourceSchema: Schema = new mongoose.Schema<IIrrigationSource>({
     },
     waterSource: {
         type: [String],
-        enum:['River', 'Tube Well', 'Pond',  'Rain Water', 'Municipality', 'Deep Tube Well']
+        enum: ['River', 'TubeWell', 'Pond', 'RainWater', 'Municipality', 'DeepTubeWell']
     },
     pollutionFree: {
         type: Boolean,
 
-    }, 
+    },
     testedSource: {
         type: Boolean,
 
@@ -88,7 +88,8 @@ const IrrigationSourceSchema: Schema = new mongoose.Schema<IIrrigationSource>({
 
     },
     arrigationTime: {
-        type: [String],
+        type: String,
+        enum: ['Morning', 'Evening', 'Noon']
 
     },
     suggestionTaken: {
@@ -96,7 +97,7 @@ const IrrigationSourceSchema: Schema = new mongoose.Schema<IIrrigationSource>({
 
     },
     irrigationMethod: {
-        type: [String],
+        type: String,
 
     },
     poperDrainage: {

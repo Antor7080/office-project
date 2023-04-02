@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const joi_1 = __importDefault(require("joi"));
 const irrigationSourceSchema = joi_1.default.object({
     generalInformationID: joi_1.default.string().required(),
-    waterSource: joi_1.default.array().items(joi_1.default.string().valid('River', 'Tube Well', 'Pond', 'Rain Water', 'Municipality', 'Deep Tube Well')).required(),
+    waterSource: joi_1.default.array().items(joi_1.default.string().valid('River', 'TubeWell', 'Pond', 'RainWater', 'Municipality', 'DeepTubeWell')).required(),
     pollutionFree: joi_1.default.boolean().required(),
     testedSource: joi_1.default.boolean().required(),
     infected: joi_1.default.boolean().required(),
@@ -29,9 +29,9 @@ const irrigationSourceSchema = joi_1.default.object({
     sewageWaterUsed: joi_1.default.boolean().required(),
     tankDisinfection: joi_1.default.boolean().required(),
     takenCooperation: joi_1.default.boolean().required(),
-    arrigationTime: joi_1.default.array().items(joi_1.default.string()),
+    arrigationTime: joi_1.default.string().valid("Morning", "Noon", "Evening").required(),
     suggestionTaken: joi_1.default.boolean().required(),
-    irrigationMethod: joi_1.default.array().items(joi_1.default.string()),
+    irrigationMethod: joi_1.default.string().required(),
     poperDrainage: joi_1.default.boolean().required(),
     excessWaterDrainage: joi_1.default.boolean().required()
 });

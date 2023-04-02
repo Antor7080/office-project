@@ -25,9 +25,9 @@ export default interface IIrrigationSource extends Document {
     sewageWaterUsed: boolean;
     tankDisinfection: boolean;
     takenCooperation: boolean;
-    arrigationTime: string | Array<string>;
+    arrigationTime: string;
     suggestionTaken: boolean;
-    irrigationMethod: string | Array<string>;
+    irrigationMethod: string ;
     poperDrainage: boolean;
     excessWaterDrainage: boolean;
 }
