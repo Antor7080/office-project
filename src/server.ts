@@ -9,6 +9,7 @@ import FertilizerFertilizingRouter from "./modules/fertilizer_fertilizing/fertil
 import GenarelInformationRouter from "./modules/genaral_information/genarel_information_router";
 import InterculturalOperationRouter from "./modules/intercultural_operation/intercultural_operation_router";
 import IrrigationSourceRouter from "./modules/irrigation_source/irrigation_source_router";
+import ManagementPackagingRouter from "./modules/management_packaging/management_packaging_router";
 import ProductionInformationrouter from "./modules/production_information/production_information_router";
 import QuarantinePestDiseasesRouter from "./modules/quarantine/quarantine_router";
 const server: Application = express();
@@ -39,6 +40,7 @@ server.use('/api/intercultural-operation', InterculturalOperationRouter);
 server.use('/api/fertilizer-fertilizing', FertilizerFertilizingRouter);
 server.use('/api/quarantine-pests-diseases', QuarantinePestDiseasesRouter);
 server.use('/api/crops-harvesting', CropsHarvestingRouter);
+server.use('/api/management-packaging', ManagementPackagingRouter);
 
 
 server.use(errorConverter);

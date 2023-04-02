@@ -6,10 +6,8 @@ export const addInterculturalOperationService = async (interculturalOperationInf
     return await interculturalOperation.save();
 };
 
-export const getInterculturalOperationById = async (id: string): Promise<IInterculturalOperation | null> => {
-    return await InterculturalOperation.findById(id);
+export const getOneById = async (info: object): Promise<IInterculturalOperation | null> => {
+    return await InterculturalOperation.findOne(info);
 };
 
-export const getInterculturalOperationByGeneralInformationID = async (generalInformationID: string): Promise<IInterculturalOperation | null> => {
-    return await InterculturalOperation.findOne({ generalInformationID });
-};
+

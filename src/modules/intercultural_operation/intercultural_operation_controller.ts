@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 import { ApiError } from "../../errors";
 import { notFound, unProcessable } from "../../helpers/responseHandler";
 import IInterculturalOperation from "./intercultural_operation_interface";
-import { addInterculturalOperationService, getInterculturalOperationByGeneralInformationID } from "./intercultural_operation_services";
+import { addInterculturalOperationService, getOneById } from "./intercultural_operation_services";
 
 /**
  * 
@@ -84,9 +84,9 @@ export const addInterculturalOperation = async (req: Request, res: Response, nex
     try {
         const generalInformationID: string = req.body.generalInformationID;
         if (!generalInformationID) {
-            throw new ApiError(unProcessable(), 'General Information ID is Required')
+            throw new ApiError(unProcessable(), ' General Information ID is Required')
         };
-        const isIntercultralOperationExist: IInterculturalOperation | null = await getInterculturalOperationByGeneralInformationID(generalInformationID);
+        const isIntercultralOperationExist: IInterculturalOperation | null = await getOneById({generalInformationID});
         if (isIntercultralOperationExist) {
             throw new ApiError(unProcessable(), 'Intercultural Operation Information Already Exist')
         };
@@ -138,15 +138,28 @@ export const addInterculturalOperation = async (req: Request, res: Response, nex
     }
  * }
     */
-export const getInterculturalOperation = async (req: Request, res: Response, next: NextFunction) => {
+export const getById = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const id: string = req.params.id;
-        const interculturalOperation: IInterculturalOperation | null = await getInterculturalOperationByGeneralInformationID(id);
+        const interculturalOperation: IInterculturalOperation | null = await getOneById({_id: id});
         if (!interculturalOperation) {
             throw new ApiError(notFound(), 'Intercultural Operation Information Not Found')
         };
         res.ok(interculturalOperation, 'Intercultural Operation Information Get Successfully')
-    } catch (err) {
-        next(err)
+    } catch (error) {
+        next(error)
+    }
+};
+
+export const getOneByGeneralInformationId = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const generalInformationID: string = req.params.id;
+        const interculturalOperation: IInterculturalOperation | null = await getOneById({generalInformationID});
+        if (!interculturalOperation) {
+            throw new ApiError(notFound(), 'Intercultural Operation Information Not Found')
+        };
+        res.ok(interculturalOperation, 'Intercultural Operation Information Get Successfully')
+    } catch (error) {
+        next(error)
     }
 };

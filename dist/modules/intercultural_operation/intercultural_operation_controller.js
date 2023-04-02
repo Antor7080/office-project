@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getInterculturalOperation = exports.addInterculturalOperation = void 0;
+exports.getOneByGeneralInformationId = exports.getById = exports.addInterculturalOperation = void 0;
 const errors_1 = require("../../errors");
 const responseHandler_1 = require("../../helpers/responseHandler");
 const intercultural_operation_services_1 = require("./intercultural_operation_services");
@@ -93,10 +93,10 @@ const addInterculturalOperation = (req, res, next) => __awaiter(void 0, void 0, 
     try {
         const generalInformationID = req.body.generalInformationID;
         if (!generalInformationID) {
-            throw new errors_1.ApiError((0, responseHandler_1.unProcessable)(), 'General Information ID is Required');
+            throw new errors_1.ApiError((0, responseHandler_1.unProcessable)(), ' General Information ID is Required');
         }
         ;
-        const isIntercultralOperationExist = yield (0, intercultural_operation_services_1.getInterculturalOperationByGeneralInformationID)(generalInformationID);
+        const isIntercultralOperationExist = yield (0, intercultural_operation_services_1.getOneById)({ generalInformationID });
         if (isIntercultralOperationExist) {
             throw new errors_1.ApiError((0, responseHandler_1.unProcessable)(), 'Intercultural Operation Information Already Exist');
         }
@@ -150,18 +150,33 @@ exports.addInterculturalOperation = addInterculturalOperation;
     }
  * }
     */
-const getInterculturalOperation = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+const getById = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
-        const interculturalOperation = yield (0, intercultural_operation_services_1.getInterculturalOperationByGeneralInformationID)(id);
+        const interculturalOperation = yield (0, intercultural_operation_services_1.getOneById)({ _id: id });
         if (!interculturalOperation) {
             throw new errors_1.ApiError((0, responseHandler_1.notFound)(), 'Intercultural Operation Information Not Found');
         }
         ;
         res.ok(interculturalOperation, 'Intercultural Operation Information Get Successfully');
     }
-    catch (err) {
-        next(err);
+    catch (error) {
+        next(error);
     }
 });
-exports.getInterculturalOperation = getInterculturalOperation;
+exports.getById = getById;
+const getOneByGeneralInformationId = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const generalInformationID = req.params.id;
+        const interculturalOperation = yield (0, intercultural_operation_services_1.getOneById)({ generalInformationID });
+        if (!interculturalOperation) {
+            throw new errors_1.ApiError((0, responseHandler_1.notFound)(), 'Intercultural Operation Information Not Found');
+        }
+        ;
+        res.ok(interculturalOperation, 'Intercultural Operation Information Get Successfully');
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.getOneByGeneralInformationId = getOneByGeneralInformationId;

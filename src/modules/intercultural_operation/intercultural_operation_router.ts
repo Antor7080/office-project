@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addInterculturalOperation, getInterculturalOperation } from "./intercultural_operation_controller";
+import { addInterculturalOperation, getById, getOneByGeneralInformationId } from "./intercultural_operation_controller";
 const router: Router = Router();
 import interculturalOperationValidator from "./intercultural_operation_validator";
 /*
@@ -13,7 +13,7 @@ import interculturalOperationValidator from "./intercultural_operation_validator
     *  
 */
 
-router.post("/add", addInterculturalOperation);
+router.post("/add",interculturalOperationValidator, addInterculturalOperation);
 
 /* * @route   GET api/intercultural-operation/get/:id
     * @desc    Get Intercultural Operation Information
@@ -23,6 +23,7 @@ router.post("/add", addInterculturalOperation);
     * @error   {success, message, error}
     * * @example http://localhost:5000/api/intercultural-operation/get/5f9e1b0b0b1b1b1b1b1b1b1b * */
 
-router.get("/get/:id", getInterculturalOperation);
+router.get("/get/:id", getById);
+router.get("/get-by-general-information-id/:id", getOneByGeneralInformationId);
 
 export default router;

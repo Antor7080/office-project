@@ -48,13 +48,13 @@ const cropsHarvestingSchemaValidation = Joi.object({
         isSeconddaryGrading: Joi.boolean().required(),
         isAirConditioned: Joi.boolean().required(),
         hour: Joi.number().required(),
-        minutes: Joi.number().required(),
+        minutes: Joi.number().max(59).required(),
     }).required(),
 });
 
 export const cropsHarvestingValidator = (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { error } = cropsHarvestingSchemaValidation.validate(req.body);
+        const { error } = cropsHarvestingSchemaValidation.validate(req.body, { abortEarly: false });
         if (error) {
             return next(error);
         }
