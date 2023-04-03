@@ -5,11 +5,13 @@ import mongoose, { ConnectOptions } from "mongoose";
 import { errorConverter, errorHandler } from "./errors";
 import { responseHandler } from "./helpers/responseHandler";
 import CropsHarvestingRouter from "./modules/crops_hervesting/crops_hervesting_router";
+import FarmersExpensesIncomeRouter from "./modules/farmers_expenses_income/farmers_expenses_income_router";
 import FertilizerFertilizingRouter from "./modules/fertilizer_fertilizing/fertilizer_fertilizing_router";
 import GenarelInformationRouter from "./modules/genaral_information/genarel_information_router";
 import InterculturalOperationRouter from "./modules/intercultural_operation/intercultural_operation_router";
 import IrrigationSourceRouter from "./modules/irrigation_source/irrigation_source_router";
 import ManagementPackagingRouter from "./modules/management_packaging/management_packaging_router";
+import PersonalWorkerHygieneRouter from "./modules/personal_worker_hygiene/personal_worker_hygiene_router";
 import ProductionInformationrouter from "./modules/production_information/production_information_router";
 import QuarantinePestDiseasesRouter from "./modules/quarantine/quarantine_router";
 const server: Application = express();
@@ -41,6 +43,8 @@ server.use('/api/fertilizer-fertilizing', FertilizerFertilizingRouter);
 server.use('/api/quarantine-pests-diseases', QuarantinePestDiseasesRouter);
 server.use('/api/crops-harvesting', CropsHarvestingRouter);
 server.use('/api/management-packaging', ManagementPackagingRouter);
+server.use('/api/personal-worker-hygiene', PersonalWorkerHygieneRouter);
+server.use('/api/farmers-expenses-income', FarmersExpensesIncomeRouter);
 
 
 server.use(errorConverter);

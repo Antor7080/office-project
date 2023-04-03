@@ -3,7 +3,7 @@ export interface IPersonalWokerHygiene extends Document {
     generalInformationID?: string;
     fram: IFram;
     interculteralOperation: InterculteralOperation;
-    farmerAccounts: IFarmerAccounts;
+   
 }
 
 interface IFram {
@@ -32,18 +32,3 @@ interface InterculteralOperation {
     isAllHygiene: boolean;
     isAllPrincipleMaintained: boolean;
 };
-
-interface IFarmerAccounts {
-    leaseCost: number;
-    soilTestCost: number;
-    landPreparationCost: number;
-    seedCost: number;
-    fertilizerCost: number;
-    irrigationCost: number;
-    laborCost: number;
-    otherCost: number;
-    totalCost: number;
-    totalProduction: number;
-    totalSale: number;
-    totalProfit: number;
-}
