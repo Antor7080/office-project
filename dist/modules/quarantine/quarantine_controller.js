@@ -19,23 +19,448 @@ const quarantine_service_1 = require("./quarantine_service");
  * @endPoint /api/quarantine-pests-diseases/add
  * @method POST
  * @reqBody {
-    "generalInformationID": "641a968de9fa2fd5a92053c3"
-     quarantinePestDieases: {
-
-     };
-    quarantineNamePests: {....};
-    quarantinePestDiseseName: {...};
-    controlMeasures: {...};
-    organicPesiticide: {....};
-    chemicalPesticide: {....};
-    fungicideBactericide: {....};
-    insectDiseases: {...};
-    vegetables: {....};
-    mango: {....};
-    betelLeaf: {....};,
+    "generalInformationID": "642a675e39088961109a93b6",
+    "quarantinePestDieases": {
+        "isQuarantinePestDisese": true,
+        "isPestRiskAnalysis": false,
+        "pestRiskAnalysis": 36
+    },
+    "quarantineNamePests": {
+        "vegetableName": " ",
+        "pestsName": [
+            "a",
+            "b",
+            "c"
+        ],
+        "mangoPestsName": [
+            "a",
+            "b",
+            "c"
+        ],
+        "betelLeafPestsName": [
+            "a",
+            "b",
+            "c"
+        ]
+    },
+    "quarantinePestDiseseName": {
+        "vegetableDisesesName": [
+            "a",
+            "b",
+            "c"
+        ],
+        "mangoDisesesName": [
+            "a",
+            "b",
+            "c"
+        ],
+        "betelLeafDisesesName": [
+            "a",
+            "b",
+            "c"
+        ]
+    },
+    "controlMeasures": {
+        "techniquesName": ["Physical"],
+        "isIntegration": true,
+        "isIntegrationTwoThree": true
+    },
+    "organicPesiticide": {
+        "vegetableOrganicPesticide": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ],
+        "mangoOrganicPesticide": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ],
+        "betelLeafOrganicPesticide": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ],
+        "otherOrganicPesticde": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ]
+    },
+    "chemicalPesticide": {
+        "vegetableChemicalPesticide": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ],
+        "mangoChemicalPesticide": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ],
+        "betelLeafChemicalPesticide": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ],
+        "otherChemicalPesticide": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ]
+    },
+    "fungicideBactericide": {
+        "vegetableFungicideBactericide": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ],
+        "mangoFungicideBactericide": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ],
+        "betelLeafFungicideBactericide": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ],
+        "otherFungicideBactericide": [
+            "2023-03-15",
+            "a",
+            200,
+            "2023-03-20",
+            "b",
+            200,
+            "2023-03-25",
+            "c",
+            200
+        ]
+    },
+    "insectDiseases": {
+        "isIdentify": true,
+        "isSuggestionsTaken": false,
+        "isPheromoneUsed": true,
+        "pheromoneUsedTime": "Before",
+        "isCropPheromoneUsed": true,
+        "isChemicalPesticideUsed": false,
+        "isHormonesUsed": true
+    },
+    "vegetables": {
+        "isTimelyControllingPests": true,
+        "isTimelyControllingDiseascs": false,
+        "isPheromoneWorked": true,
+        "isRegularlyMonitored": true,
+        "isBagUsed": true,
+        "colorBag": "White"
+    },
+    "mango": {
+        "isProperManagement": true,
+        "isBaggingUsed": false,
+        "isIPMUsed": true,
+        "daysBeforeBagging": 10,
+        "isMeaserTake": true,
+        "isLodgedBurned": true,
+        "isRightAnthracnose": false
+    },
+    "betelLeaf": {
+        "isSalmonellaProtection": false,
+        "isChemicalOrganicUsed": true,
+        "isPreventingExcretion":false
+    }
 }
-
- */
+@res {
+    "success": true,
+    "code": 201,
+    "data": {
+        "generalInformationID": "642a675e39088961109a93b6",
+        "quarantinePestDieases": {
+            "isQuarantinePestDisese": true,
+            "isPestRiskAnalysis": false,
+            "pestRiskAnalysis": 36
+        },
+        "quarantineNamePests": {
+            "vegetableName": " ",
+            "pestsName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "mangoPestsName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "betelLeafPestsName": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        "quarantinePestDiseseName": {
+            "vegetableDisesesName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "mangoDisesesName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "betelLeafDisesesName": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        "controlMeasures": {
+            "techniquesName": [
+                "Physical"
+            ],
+            "isIntegration": true,
+            "isIntegrationTwoThree": true
+        },
+        "organicPesiticide": {
+            "vegetableOrganicPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "mangoOrganicPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "betelLeafOrganicPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "otherOrganicPesticde": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ]
+        },
+        "chemicalPesticide": {
+            "vegetableChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "mangoChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "betelLeafChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "otherChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ]
+        },
+        "fungicideBactericide": {
+            "vegetableFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "mangoFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "betelLeafFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "otherFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ]
+        },
+        "insectDiseases": {
+            "isIdentify": true,
+            "isSuggestionsTaken": false,
+            "isPheromoneUsed": true,
+            "pheromoneUsedTime": "Before",
+            "isCropPheromoneUsed": true,
+            "isChemicalPesticideUsed": false,
+            "isHormonesUsed": true
+        },
+        "vegetables": {
+            "isTimelyControllingPests": true,
+            "isTimelyControllingDiseascs": false,
+            "isPheromoneWorked": true,
+            "isRegularlyMonitored": true,
+            "isBagUsed": true,
+            "colorBag": "White"
+        },
+        "mango": {
+            "isProperManagement": true,
+            "isBaggingUsed": false,
+            "isIPMUsed": true,
+            "daysBeforeBagging": 10,
+            "isMeaserTake": true,
+            "isLodgedBurned": true,
+            "isRightAnthracnose": false
+        },
+        "betelLeaf": {
+            "isSalmonellaProtection": false,
+            "isChemicalOrganicUsed": true,
+            "isPreventingExcretion": false
+        },
+        "_id": "642a734a6ecd0b633eb000cc",
+        "__v": 0
+    },
+    "message": "Successfully Created."
+} */
 const addQuarantinePestDiseasesController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { body } = req;
@@ -59,20 +484,230 @@ exports.addQuarantinePestDiseasesController = addQuarantinePestDiseasesControlle
  * @method GET
  * @reqParam id
  * @resBody {
-        "generalInformationID": "641a968de9fa2fd5a92053c3"
-     quarantinePestDieases: {
-
-     };
-    quarantineNamePests: {....};
-    quarantinePestDiseseName: {...};
-    controlMeasures: {...};
-    organicPesiticide: {....};
-    chemicalPesticide: {....};
-    fungicideBactericide: {....};
-    insectDiseases: {...};
-    vegetables: {....};
-    mango: {....};
-    betelLeaf: {....};
+    "success": true,
+    "code": 200,
+    "data": {
+        "quarantinePestDieases": {
+            "isQuarantinePestDisese": true,
+            "isPestRiskAnalysis": false,
+            "pestRiskAnalysis": 36
+        },
+        "quarantineNamePests": {
+            "vegetableName": " ",
+            "pestsName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "mangoPestsName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "betelLeafPestsName": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        "quarantinePestDiseseName": {
+            "vegetableDisesesName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "mangoDisesesName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "betelLeafDisesesName": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        "controlMeasures": {
+            "techniquesName": [
+                "Physical"
+            ],
+            "isIntegration": true,
+            "isIntegrationTwoThree": true
+        },
+        "organicPesiticide": {
+            "vegetableOrganicPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "mangoOrganicPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "betelLeafOrganicPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "otherOrganicPesticde": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ]
+        },
+        "chemicalPesticide": {
+            "vegetableChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "mangoChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "betelLeafChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "otherChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ]
+        },
+        "fungicideBactericide": {
+            "vegetableFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "mangoFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "betelLeafFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "otherFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ]
+        },
+        "insectDiseases": {
+            "isIdentify": true,
+            "isSuggestionsTaken": false,
+            "isPheromoneUsed": true,
+            "pheromoneUsedTime": "Before",
+            "isCropPheromoneUsed": true,
+            "isChemicalPesticideUsed": false,
+            "isHormonesUsed": true
+        },
+        "vegetables": {
+            "isTimelyControllingPests": true,
+            "isTimelyControllingDiseascs": false,
+            "isPheromoneWorked": true,
+            "isRegularlyMonitored": true,
+            "isBagUsed": true,
+            "colorBag": "White"
+        },
+        "mango": {
+            "isProperManagement": true,
+            "isBaggingUsed": false,
+            "isIPMUsed": true,
+            "daysBeforeBagging": 10,
+            "isMeaserTake": true,
+            "isLodgedBurned": true,
+            "isRightAnthracnose": false
+        },
+        "betelLeaf": {
+            "isSalmonellaProtection": false,
+            "isChemicalOrganicUsed": true,
+            "isPreventingExcretion": false
+        },
+        "_id": "642900f22b4e778f712df2a9",
+        "generalInformationID": "6427fc064310a9504c8be92b",
+        "__v": 0
+    },
+    "message": "Quarantine Pest Diseases Control is found"
 }
 */
 const getOneById = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
@@ -97,18 +732,231 @@ exports.getOneById = getOneById;
  * @method GET
  * @reqParam id
  * @resBody {
-        "generalInformationID": "641a968de9fa2fd5a92053c3"
-        quarantinePestDieases: {....}
-        quarantineNamePests: {.....}
-        quarantinePestDiseseName: {....}
-        controlMeasures: {....}
-        organicPesiticide: {....}
-        chemicalPesticide: {....}
-        fungicideBactericide: {....}
-        insectDiseases: {....}
-        vegetables: {...}
-        mango: {.....}
-        betelLeaf: {....}
+    "success": true,
+    "code": 200,
+    "data": {
+        "quarantinePestDieases": {
+            "isQuarantinePestDisese": true,
+            "isPestRiskAnalysis": false,
+            "pestRiskAnalysis": 36
+        },
+        "quarantineNamePests": {
+            "vegetableName": " ",
+            "pestsName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "mangoPestsName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "betelLeafPestsName": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        "quarantinePestDiseseName": {
+            "vegetableDisesesName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "mangoDisesesName": [
+                "a",
+                "b",
+                "c"
+            ],
+            "betelLeafDisesesName": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        "controlMeasures": {
+            "techniquesName": [
+                "Physical"
+            ],
+            "isIntegration": true,
+            "isIntegrationTwoThree": true
+        },
+        "organicPesiticide": {
+            "vegetableOrganicPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "mangoOrganicPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "betelLeafOrganicPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "otherOrganicPesticde": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ]
+        },
+        "chemicalPesticide": {
+            "vegetableChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "mangoChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "betelLeafChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "otherChemicalPesticide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ]
+        },
+        "fungicideBactericide": {
+            "vegetableFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "mangoFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "betelLeafFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ],
+            "otherFungicideBactericide": [
+                "2023-03-15",
+                "a",
+                200,
+                "2023-03-20",
+                "b",
+                200,
+                "2023-03-25",
+                "c",
+                200
+            ]
+        },
+        "insectDiseases": {
+            "isIdentify": true,
+            "isSuggestionsTaken": false,
+            "isPheromoneUsed": true,
+            "pheromoneUsedTime": "Before",
+            "isCropPheromoneUsed": true,
+            "isChemicalPesticideUsed": false,
+            "isHormonesUsed": true
+        },
+        "vegetables": {
+            "isTimelyControllingPests": true,
+            "isTimelyControllingDiseascs": false,
+            "isPheromoneWorked": true,
+            "isRegularlyMonitored": true,
+            "isBagUsed": true,
+            "colorBag": "White"
+        },
+        "mango": {
+            "isProperManagement": true,
+            "isBaggingUsed": false,
+            "isIPMUsed": true,
+            "daysBeforeBagging": 10,
+            "isMeaserTake": true,
+            "isLodgedBurned": true,
+            "isRightAnthracnose": false
+        },
+        "betelLeaf": {
+            "isSalmonellaProtection": false,
+            "isChemicalOrganicUsed": true,
+            "isPreventingExcretion": false
+        },
+        "_id": "642900f22b4e778f712df2a9",
+        "generalInformationID": "6427fc064310a9504c8be92b",
+        "__v": 0
+    },
+    "message": "Quarantine Pest Diseases Control is found"
+}
  */
 const getOneByGeneralInformationId = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
