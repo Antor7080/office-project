@@ -3,12 +3,13 @@ import { IManagementPackaging } from "./management_packaging_interface";
 
 const ManagementPackagingSchema: Schema = new Schema<IManagementPackaging>({
     generalInformationID: {
-        type: Schema.Types.ObjectId, required: true
+        type: Schema.Types.ObjectId,
+        ref: "GenarelInformation"
     },
     centerPackaging: {
         transportationType: {
             type: String, required: true,
-            enum:["Normal", "Refrigerated"]
+            enum: ["Normal", "Refrigerated"]
         },
         isInspection: {
             type: Boolean, required: true
@@ -85,7 +86,7 @@ const ManagementPackagingSchema: Schema = new Schema<IManagementPackaging>({
         },
         baggingType: {
             type: String, required: true,
-            enum:["White", "Brown"]
+            enum: ["White", "Brown"]
         },
         isBoiledWaterCleaning: {
             type: Boolean, required: true

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addProductionInformation, getProductionInformation } from "./production_information_controller";
+import { addProductionInformation, getByGeneralInformationID, getProductionInformation } from "./production_information_controller";
 import productionInformationValidator from "./production_information_validator";
 
 
@@ -25,7 +25,8 @@ router.post('/add', productionInformationValidator, addProductionInformation);
     * @error   {success, message, error}
     * @example http://localhost:5000/api/production-information/get-production-information/5f9e1b0b0b1b1b1b1b1b1b1b
     * */
-router.get("/get-production-information/:id", getProductionInformation)
+router.get("/get-production-information/:id", getProductionInformation);
+router.get("/get-by-general-information-id/:id", getByGeneralInformationID);
 
 export default router;
 

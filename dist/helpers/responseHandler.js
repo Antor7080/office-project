@@ -1,35 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.unProcessable = exports.unAuthorized = exports.responseHandler = exports.notFound = exports.notAccepted = exports.noContent = exports.internalServerError = exports.forbidden = void 0;
-const CONTINUE = 100;
+exports.unProcessable = exports.responseHandler = exports.notFound = exports.internalServerError = void 0;
 const OK = 200;
 const CREATED = 201;
-const ACCEPTED = 202;
-const NO_CONTENT = 204;
 const BAD_REQUEST = 400;
-const UNAUTHORIZED = 401;
-const FORBIDDEN = 403;
 const NOT_FOUND = 404;
-const NOT_ACCEPTED = 406;
-const REQUEST_TIMEOUT = 408;
 const UNPROCESSABLE = 422;
 const INTERNAL_SERVER_ERROR = 500;
-const NOT_IMPLEMENTED = 501;
-const BAD_GATEWAY = 502;
-const SERVICE_UNAVAILABLE = 503;
-const GATEWAY_TIME_OUT = 504;
 const notFound = () => {
     return NOT_FOUND;
 };
 exports.notFound = notFound;
-const notAccepted = () => {
-    return NOT_ACCEPTED;
-};
-exports.notAccepted = notAccepted;
-const noContent = () => {
-    return NO_CONTENT;
-};
-exports.noContent = noContent;
 const unProcessable = () => {
     return UNPROCESSABLE;
 };
@@ -38,14 +19,6 @@ const internalServerError = () => {
     return INTERNAL_SERVER_ERROR;
 };
 exports.internalServerError = internalServerError;
-const unAuthorized = () => {
-    return UNAUTHORIZED;
-};
-exports.unAuthorized = unAuthorized;
-const forbidden = () => {
-    return FORBIDDEN;
-};
-exports.forbidden = forbidden;
 // response handler middleware
 const responseHandler = (req, res, next) => {
     // return success response
@@ -77,13 +50,6 @@ const responseHandler = (req, res, next) => {
             message: message || "Failed",
         });
     };
-    // return no content response
-    const noContent = (statusCode) => {
-        return res.status(statusCode).send({
-            success: true,
-            code: statusCode,
-        });
-    };
     // for sending ok operation
     res.ok = (data, message) => {
         return success(OK, data, message || "OK");
@@ -94,14 +60,6 @@ const responseHandler = (req, res, next) => {
     // for sending created operation
     res.created = (data, message) => {
         return success(CREATED, data, message || "Successfully Created.");
-    };
-    // for sending updated operation
-    res.updated = (data, message) => {
-        return success(CREATED, data, message || "Successfully Updated.");
-    };
-    // for sending deleted operation
-    res.noContent = () => {
-        return noContent(ACCEPTED);
     };
     // for sending failed operation
     res.unprocessable = (message) => {

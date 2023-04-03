@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getIrrigationSourceInfo = exports.addIrrigationSourceInfo = void 0;
+exports.getByGeneralInformationID = exports.getIrrigationSourceInfo = exports.addIrrigationSourceInfo = void 0;
 const errors_1 = require("../../errors");
 const responseHandler_1 = require("../../helpers/responseHandler");
 const irrigation_source_services_1 = require("./irrigation_source_services");
@@ -91,7 +91,7 @@ const addIrrigationSourceInfo = (req, res, next) => __awaiter(void 0, void 0, vo
         if (!generalInformationID) {
             throw new errors_1.ApiError((0, responseHandler_1.unProcessable)(), 'General Information ID is Required');
         }
-        const isIrrigationSourceExist = yield (0, irrigation_source_services_1.getIrrigationSourceByGeneralInformationID)(req.body.generalInformationID);
+        const isIrrigationSourceExist = yield (0, irrigation_source_services_1.findOneQuery)({ generalInformationID });
         if (isIrrigationSourceExist) {
             throw new errors_1.ApiError((0, responseHandler_1.unProcessable)(), 'Irrigation Source Information Already Exist');
         }
@@ -147,7 +147,7 @@ exports.addIrrigationSourceInfo = addIrrigationSourceInfo;
 const getIrrigationSourceInfo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const id = req.params.id;
-        const irrigationSourceInfo = yield (0, irrigation_source_services_1.getIrrigationSourceByGeneralInformationID)(id);
+        const irrigationSourceInfo = yield (0, irrigation_source_services_1.findOneQuery)({ _id: id });
         if (!irrigationSourceInfo) {
             throw new errors_1.ApiError((0, responseHandler_1.notFound)(), 'Irrigation Source Information Not Found');
         }
@@ -159,3 +159,62 @@ const getIrrigationSourceInfo = (req, res, next) => __awaiter(void 0, void 0, vo
     }
 });
 exports.getIrrigationSourceInfo = getIrrigationSourceInfo;
+/**
+ * @objective get irrigation source information by general information id
+ * @endpoint /api/irrigation-source/get-by-general-information-id/:id
+ * @method GET
+ * @reqparam id
+ * @res {
+    "success": true,
+    "code": 200,
+    "data": {
+        "_id": "64213acb4e6d2ccd264eaaa0",
+        "generalInformationID": "641a968de9fa2fd5a92053c3",
+        "waterSource": [
+            "River"
+        ],
+        "pollutionFree": true,
+        "testedSource": false,
+        "infected": true,
+        "isPurifined": false,
+        "purifyingAgent": "test 1",
+        "localName": "test local name",
+        "sourceType": "Organic",
+        "badEffectHuman": true,
+        "isHeavyMetalPresent": false,
+        "irrigationSameTime": false,
+        "differentIrrigationTime": 4,
+        "irrigation1": 5,
+        "irrigation2": 6,
+        "irrigation3": 7,
+        "irrigation4": 8,
+        "irrigation5": 9,
+        "totalIrrigation": 30,
+        "animalRoaming": false,
+        "industryNearBy": false,
+        "sewageWaterUsed": true,
+        "tankDisinfection": true,
+        "takenCooperation": false,
+        "suggestionTaken": false,
+        "poperDrainage": true,
+        "excessWaterDrainage": false,
+        "__v": 0
+    },
+    "message": "Irrigation Source Information Get Successfully"
+}
+ */
+const getByGeneralInformationID = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const generalInformationID = req.params.id;
+        const irrigationSourceInfo = yield (0, irrigation_source_services_1.findOneQuery)({ generalInformationID });
+        if (!irrigationSourceInfo) {
+            throw new errors_1.ApiError((0, responseHandler_1.notFound)(), 'Irrigation Source Information Not Found');
+        }
+        ;
+        res.ok(irrigationSourceInfo, 'Irrigation Source Information Get Successfully');
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.getByGeneralInformationID = getByGeneralInformationID;

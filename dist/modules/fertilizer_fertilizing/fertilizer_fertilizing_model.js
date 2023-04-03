@@ -4,6 +4,7 @@ const mongoose_1 = require("mongoose");
 const FertilizerFertilizingSchema = new mongoose_1.Schema({
     generalInformationID: {
         type: mongoose_1.Schema.Types.ObjectId,
+        ref: "GenarelInformation"
     },
     landPreparationFertilizer: {
         fertilizingTime: {

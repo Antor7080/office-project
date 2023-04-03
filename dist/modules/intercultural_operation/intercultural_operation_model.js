@@ -4,6 +4,7 @@ const mongoose_1 = require("mongoose");
 const InterculturalOperationSchema = new mongoose_1.Schema({
     generalInformationID: {
         type: mongoose_1.Schema.Types.ObjectId,
+        ref: 'GenarelInformation'
     },
     weedingIntercultural: {
         isCleaned: {
@@ -64,6 +65,12 @@ const InterculturalOperationSchema = new mongoose_1.Schema({
         mulchingPaperUsedMango: {
             type: Boolean
         },
+        fenceUsedMango: {
+            type: Boolean,
+        },
+        wasteManagementMango: {
+            type: Boolean
+        }
     },
     betelLeaf: {
         landShadowNotDamp: {

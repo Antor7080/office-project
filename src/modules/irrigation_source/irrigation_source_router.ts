@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addIrrigationSourceInfo, getIrrigationSourceInfo } from "./irrigation_source_controller";
+import { addIrrigationSourceInfo, getIrrigationSourceInfo, getByGeneralInformationID } from "./irrigation_source_controller";
 import irrigationSourceValidator from "./irrigation_source_validator";
 const router: Router = Router();
 
@@ -25,4 +25,5 @@ router.post("/add", irrigationSourceValidator, addIrrigationSourceInfo);
     * * @example http://localhost:5000/api/irrigation-source/get/5f9e1b0b0b1b1b1b1b1b1b1b * */
 
 router.get("/get/:id", getIrrigationSourceInfo);
+router.get("/get-by-general-information-id/:id", getByGeneralInformationID);
 export default router;

@@ -13,18 +13,18 @@ export const managementPackagingValidation = Joi.object({
         isHygienicPractices: Joi.boolean().required(),
         isHygienicIsolatedRoom: Joi.boolean().required(),
         isHygienicArrivalExit: Joi.boolean().required()
-    }),
+    }).required(),
     temperatureControl: Joi.object({
         isAppropriateTemperature: Joi.boolean().required(),
-        vegetables: Joi.number().required(),
-        betelLeaf: Joi.number().required(),
-        mango: Joi.number().required()
-    }),
+        vegetables: Joi.number(),
+        betelLeaf: Joi.number(),
+        mango: Joi.number()
+    }).required(),
     vegetables: Joi.object({
         isCleaningMethod: Joi.boolean().required(),
         isColdWaterTreatment: Joi.boolean().required(),
         isChlorineted: Joi.boolean().required()
-    }),
+    }).required(),
     betelLeaf: Joi.object({
         isCleaningMethod: Joi.boolean().required(),
         isChlorineted: Joi.boolean().required(),
@@ -32,20 +32,20 @@ export const managementPackagingValidation = Joi.object({
         treatedTime: Joi.number().required(),
         isWashDistilledWater: Joi.boolean().required(),
         isDryUnderFan: Joi.boolean().required()
-    }),
+    }).required(),
     mango: Joi.object({
         isBagging: Joi.boolean().required(),
         baggingType: Joi.string().valid('White', 'Brown').required(),
         isBoiledWaterCleaning: Joi.boolean().required(),
         treatedTemperature: Joi.number().required(),
         isDryUnderFan: Joi.boolean().required()
-    }),
+    }).required(),
     inspection: Joi.object({
         isInspectionByOfficer: Joi.boolean().required(),
         isNoInsect: Joi.boolean().required(),
         isCertified: Joi.boolean().required(),
         certificateDate: Joi.date().required()
-    }),
+    }).required(),
     finalPackaging: Joi.object({
         packagingType: Joi.string().required(),
         consumerDemandPackaging: Joi.boolean().required(),
@@ -67,12 +67,12 @@ export const managementPackagingValidation = Joi.object({
         importerName: Joi.string().required(),
         isRejected: Joi.boolean().required(),
         rejectedReason: Joi.string().valid('Misclear', 'Insects', 'Diseases')
-    })
+    }).required()
 });
 
 const managementPackagingValidator = (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { error } = managementPackagingValidation.validate(req.body);
+        const { error } = managementPackagingValidation.validate(req.body, { abortEarly: false });
         if (error) {
             return next(error);
         }

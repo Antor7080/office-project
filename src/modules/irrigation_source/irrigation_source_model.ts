@@ -4,6 +4,7 @@ import IIrrigationSource from './irrigation_source_interface';
 const IrrigationSourceSchema: Schema = new mongoose.Schema<IIrrigationSource>({
     generalInformationID: {
         type: Schema.Types.ObjectId,
+        ref: 'GenarelInformation'
     },
     waterSource: {
         type: [String],

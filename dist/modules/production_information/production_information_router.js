@@ -27,4 +27,5 @@ router.post('/add', production_information_validator_1.default, production_infor
     * @example http://localhost:5000/api/production-information/get-production-information/5f9e1b0b0b1b1b1b1b1b1b1b
     * */
 router.get("/get-production-information/:id", production_information_controller_1.getProductionInformation);
+router.get("/get-by-general-information-id/:id", production_information_controller_1.getByGeneralInformationID);
 exports.default = router;

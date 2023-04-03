@@ -4,6 +4,7 @@ import { IFertilizerFertilizing } from "./fertilizer_fertilizing_interface";
 const FertilizerFertilizingSchema = new Schema<IFertilizerFertilizing>({
     generalInformationID: {
         type: Schema.Types.ObjectId,
+        ref: "GenarelInformation"
     },
     landPreparationFertilizer: {
         fertilizingTime: {

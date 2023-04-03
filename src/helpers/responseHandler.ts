@@ -1,35 +1,16 @@
 import { NextFunction, Request, Response } from "express";
 
-const CONTINUE = 100;
 const OK = 200;
 const CREATED = 201;
-const ACCEPTED = 202;
-const NO_CONTENT = 204;
 const BAD_REQUEST = 400;
-const UNAUTHORIZED = 401;
-const FORBIDDEN = 403;
 const NOT_FOUND = 404;
-const NOT_ACCEPTED = 406;
-const REQUEST_TIMEOUT = 408;
 const UNPROCESSABLE = 422;
 const INTERNAL_SERVER_ERROR = 500;
-const NOT_IMPLEMENTED = 501;
-const BAD_GATEWAY = 502;
-const SERVICE_UNAVAILABLE = 503;
-const GATEWAY_TIME_OUT = 504;
-
-
 
 const notFound = () => {
   return NOT_FOUND;
 };
 
-const notAccepted = () => {
-  return NOT_ACCEPTED;
-};
-const noContent = () => {
-  return NO_CONTENT;
-};
 
 const unProcessable = () => {
   return UNPROCESSABLE;
@@ -38,13 +19,6 @@ const internalServerError = () => {
   return INTERNAL_SERVER_ERROR;
 };
 
-const unAuthorized = () => {
-  return UNAUTHORIZED;
-};
-
-const forbidden = () => {
-  return FORBIDDEN;
-};
 
 // modified express Response types
 declare module "express-serve-static-core" {
@@ -52,10 +26,6 @@ declare module "express-serve-static-core" {
     ok(data: any, message?: string): Response;
     okFalse(data: any, message?: string): Response;
     created(data: any, message?: string): Response;
-    updated(data: any, message?: string): Response;
-    deleted(data?: any, message?: string): Response;
-    noContent(): Response;
-    unauthorized(message?: string): Response;
     notFound(message?: string): Response;
     unprocessable(message?: string): Response;
     internalServerError(message?: string): Response;
@@ -98,13 +68,7 @@ const responseHandler = (req: Request, res: Response, next: NextFunction) => {
       message: message || "Failed",
     });
   };
-  // return no content response
-  const noContent = (statusCode: number) => {
-    return res.status(statusCode).send({
-      success: true,
-      code: statusCode,
-    });
-  };
+
   // for sending ok operation
   res.ok = (data: any, message?: string) => {
     return success(OK, data, message || "OK");
@@ -119,15 +83,6 @@ const responseHandler = (req: Request, res: Response, next: NextFunction) => {
     return success(CREATED, data, message || "Successfully Created.");
   };
 
-  // for sending updated operation
-  res.updated = (data: any, message?: string) => {
-    return success(CREATED, data, message || "Successfully Updated.");
-  };
-
-  // for sending deleted operation
-  res.noContent = () => {
-    return noContent(ACCEPTED);
-  };
 
   // for sending failed operation
 
@@ -148,6 +103,6 @@ const responseHandler = (req: Request, res: Response, next: NextFunction) => {
 };
 
 export {
-  forbidden, internalServerError, noContent, notAccepted, notFound, responseHandler, unAuthorized, unProcessable
+  internalServerError, notFound, responseHandler, unProcessable
 };
 

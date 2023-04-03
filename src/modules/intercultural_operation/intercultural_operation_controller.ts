@@ -10,14 +10,14 @@ import { addInterculturalOperationService, getOneById } from "./intercultural_op
  * @endpoint /api/intercultural-operation/add
  * @method POST
  * @reqbody {
-    "generalInformationID" :  "641a968de9fa2fd5a92053c3",
+    "generalInformationID" :  "642a675e39088961109a93b6",
     "weedingIntercultural": {
         "isCleaned": true,
         "timelyWeeding": false,
         "primarilyWeeded": true,
         "productionLevelCleaned": false,
         "purifingAgentUsed": true,
-        "treatedChemicalName": false
+        "treatedChemicalName": "timelyWeeding"
     },
     "vegetable": {
         "vegetableCultivation": false,
@@ -33,7 +33,9 @@ import { addInterculturalOperationService, getOneById } from "./intercultural_op
         "deadStemRemoved" : true,
         "doesClean": false,
         "hormoneUsed": true,
-        "mulchingPaperUsedMango": true
+        "mulchingPaperUsedMango": true,
+        "fenceUsedMango": true,
+        "wasteManagementMango": true
     },
     "betelLeaf": {
         "landShadowNotDamp": true,
@@ -44,40 +46,45 @@ import { addInterculturalOperationService, getOneById } from "./intercultural_op
 }
 @res {
     "success": true,
-    "message": "Intercultural Operation Information Added Successfully",
+    "code": 201,
     "data": {
-    "generalInformationID" :  "641a968de9fa2fd5a92053c3",
-    "weedingIntercultural": {
-        "isCleaned": true,
-        "timelyWeeding": false,
-        "primarilyWeeded": true,
-        "productionLevelCleaned": false,
-        "purifingAgentUsed": true,
-        "treatedChemicalName": false
+        "generalInformationID": "642a675e39088961109a93b6",
+        "weedingIntercultural": {
+            "isCleaned": true,
+            "timelyWeeding": false,
+            "primarilyWeeded": true,
+            "productionLevelCleaned": false,
+            "purifingAgentUsed": true,
+            "treatedChemicalName": "timelyWeeding"
+        },
+        "vegetable": {
+            "vegetableCultivation": false,
+            "mulchingPaperUsed": false,
+            "supportUsed": true,
+            "lightAndAir": false,
+            "animalProtection": true,
+            "isEggPlant": false,
+            "fenceUsed": true,
+            "wasteManagement": false
+        },
+        "mango": {
+            "deadStemRemoved": true,
+            "doesClean": false,
+            "hormoneUsed": true,
+            "mulchingPaperUsedMango": true,
+            "fenceUsedMango": true,
+            "wasteManagementMango": true
+        },
+        "betelLeaf": {
+            "landShadowNotDamp": true,
+            "supportUsedBetel": false,
+            "animalProtectionBetel": true,
+            "prohibitedEntry": false
+        },
+        "_id": "642a6a7b8bcf3efe40101015",
+        "__v": 0
     },
-    "vegetable": {
-        "vegetableCultivation": false,
-        "mulchingPaperUsed": false,
-        "supportUsed": true,
-        "lightAndAir" : false,
-        "animalProtection" : true,
-        "isEggPlant": false, 
-        "fenceUsed": true, 
-        "wasteManagement": false
-    },
-    "mango":{
-        "deadStemRemoved" : true,
-        "doesClean": false,
-        "hormoneUsed": true,
-        "mulchingPaperUsedMango": true
-    },
-    "betelLeaf": {
-        "landShadowNotDamp": true,
-        "supportUsedBetel": false,
-        "animalProtectionBetel": true,
-        "prohibitedEntry": false
-    }
-}
+    "message": "Intercultural Operation Information Added Successfully"
 }
  */
 export const addInterculturalOperation = async (req: Request, res: Response, next: NextFunction) => {
@@ -86,7 +93,7 @@ export const addInterculturalOperation = async (req: Request, res: Response, nex
         if (!generalInformationID) {
             throw new ApiError(unProcessable(), ' General Information ID is Required')
         };
-        const isIntercultralOperationExist: IInterculturalOperation | null = await getOneById({generalInformationID});
+        const isIntercultralOperationExist: IInterculturalOperation | null = await getOneById({ generalInformationID });
         if (isIntercultralOperationExist) {
             throw new ApiError(unProcessable(), 'Intercultural Operation Information Already Exist')
         };
@@ -103,45 +110,52 @@ export const addInterculturalOperation = async (req: Request, res: Response, nex
  * @method GET
  * @reqparam id
  * @res {
- * "success": true,
- * "message": "Intercultural Operation Information Get Successfully",
- * "data":  "generalInformationID" :  "641a968de9fa2fd5a92053c3",
-    "weedingIntercultural": {
-        "isCleaned": true,
-        "timelyWeeding": false,
-        "primarilyWeeded": true,
-        "productionLevelCleaned": false,
-        "purifingAgentUsed": true,
-        "treatedChemicalName": false
+    "success": true,
+    "code": 200,
+    "data": {
+        "weedingIntercultural": {
+            "isCleaned": true,
+            "timelyWeeding": false,
+            "primarilyWeeded": true,
+            "productionLevelCleaned": false,
+            "purifingAgentUsed": true,
+            "treatedChemicalName": "timelyWeeding"
+        },
+        "vegetable": {
+            "vegetableCultivation": false,
+            "mulchingPaperUsed": false,
+            "supportUsed": true,
+            "lightAndAir": false,
+            "animalProtection": true,
+            "isEggPlant": false,
+            "fenceUsed": true,
+            "wasteManagement": false
+        },
+        "mango": {
+            "deadStemRemoved": true,
+            "doesClean": false,
+            "hormoneUsed": true,
+            "mulchingPaperUsedMango": true,
+            "fenceUsedMango": true,
+            "wasteManagementMango": true
+        },
+        "betelLeaf": {
+            "landShadowNotDamp": true,
+            "supportUsedBetel": false,
+            "animalProtectionBetel": true,
+            "prohibitedEntry": false
+        },
+        "_id": "642a6a7b8bcf3efe40101015",
+        "generalInformationID": "642a675e39088961109a93b6",
+        "__v": 0
     },
-    "vegetable": {
-        "vegetableCultivation": false,
-        "mulchingPaperUsed": false,
-        "supportUsed": true,
-        "lightAndAir" : false,
-        "animalProtection" : true,
-        "isEggPlant": false, 
-        "fenceUsed": true, 
-        "wasteManagement": false
-    },
-    "mango":{
-        "deadStemRemoved" : true,
-        "doesClean": false,
-        "hormoneUsed": true,
-        "mulchingPaperUsedMango": true
-    },
-    "betelLeaf": {
-        "landShadowNotDamp": true,
-        "supportUsedBetel": false,
-        "animalProtectionBetel": true,
-        "prohibitedEntry": false
-    }
- * }
+    "message": "Intercultural Operation Information Get Successfully"
+}
     */
 export const getById = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const id: string = req.params.id;
-        const interculturalOperation: IInterculturalOperation | null = await getOneById({_id: id});
+        const interculturalOperation: IInterculturalOperation | null = await getOneById({ _id: id });
         if (!interculturalOperation) {
             throw new ApiError(notFound(), 'Intercultural Operation Information Not Found')
         };
@@ -151,10 +165,58 @@ export const getById = async (req: Request, res: Response, next: NextFunction) =
     }
 };
 
+/**
+ * @objective Get Intercultural Operation Information By General Information ID
+ * @endpoint /api/intercultural-operation/get-by-general-information-id/:id
+ * @method GET
+ * @reqparam id
+ * @res {
+    "success": true,
+    "code": 200,
+    "data": {
+        "weedingIntercultural": {
+            "isCleaned": true,
+            "timelyWeeding": false,
+            "primarilyWeeded": true,
+            "productionLevelCleaned": false,
+            "purifingAgentUsed": true,
+            "treatedChemicalName": "timelyWeeding"
+        },
+        "vegetable": {
+            "vegetableCultivation": false,
+            "mulchingPaperUsed": false,
+            "supportUsed": true,
+            "lightAndAir": false,
+            "animalProtection": true,
+            "isEggPlant": false,
+            "fenceUsed": true,
+            "wasteManagement": false
+        },
+        "mango": {
+            "deadStemRemoved": true,
+            "doesClean": false,
+            "hormoneUsed": true,
+            "mulchingPaperUsedMango": true,
+            "fenceUsedMango": true,
+            "wasteManagementMango": true
+        },
+        "betelLeaf": {
+            "landShadowNotDamp": true,
+            "supportUsedBetel": false,
+            "animalProtectionBetel": true,
+            "prohibitedEntry": false
+        },
+        "_id": "642a6a7b8bcf3efe40101015",
+        "generalInformationID": "642a675e39088961109a93b6",
+        "__v": 0
+    },
+    "message": "Intercultural Operation Information Get Successfully"
+}
+ */
 export const getOneByGeneralInformationId = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const generalInformationID: string = req.params.id;
-        const interculturalOperation: IInterculturalOperation | null = await getOneById({generalInformationID});
+        const interculturalOperation: IInterculturalOperation | null = await getOneById({ generalInformationID });
         if (!interculturalOperation) {
             throw new ApiError(notFound(), 'Intercultural Operation Information Not Found')
         };

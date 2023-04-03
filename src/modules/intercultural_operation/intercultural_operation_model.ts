@@ -4,6 +4,7 @@ import IInterculturalOperation from './intercultural_operation_interface';
 const InterculturalOperationSchema: Schema = new Schema<IInterculturalOperation>({
     generalInformationID: {
         type: Schema.Types.ObjectId,
+        ref: 'GenarelInformation'
     },
     weedingIntercultural: {
         isCleaned: {
@@ -66,6 +67,12 @@ const InterculturalOperationSchema: Schema = new Schema<IInterculturalOperation>
         mulchingPaperUsedMango: {
             type: Boolean
         },
+        fenceUsedMango: {
+            type: Boolean,
+        },
+        wasteManagementMango: {
+            type: Boolean
+        }
 
     },
     betelLeaf: {

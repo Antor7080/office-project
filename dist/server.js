@@ -14,6 +14,7 @@ const fertilizer_fertilizing_router_1 = __importDefault(require("./modules/ferti
 const genarel_information_router_1 = __importDefault(require("./modules/genaral_information/genarel_information_router"));
 const intercultural_operation_router_1 = __importDefault(require("./modules/intercultural_operation/intercultural_operation_router"));
 const irrigation_source_router_1 = __importDefault(require("./modules/irrigation_source/irrigation_source_router"));
+const management_packaging_router_1 = __importDefault(require("./modules/management_packaging/management_packaging_router"));
 const production_information_router_1 = __importDefault(require("./modules/production_information/production_information_router"));
 const quarantine_router_1 = __importDefault(require("./modules/quarantine/quarantine_router"));
 const server = (0, express_1.default)();
@@ -36,6 +37,7 @@ server.use('/api/intercultural-operation', intercultural_operation_router_1.defa
 server.use('/api/fertilizer-fertilizing', fertilizer_fertilizing_router_1.default);
 server.use('/api/quarantine-pests-diseases', quarantine_router_1.default);
 server.use('/api/crops-harvesting', crops_hervesting_router_1.default);
+server.use('/api/management-packaging', management_packaging_router_1.default);
 server.use(errors_1.errorConverter);
 server.use(errors_1.errorHandler);
 const port = dbConfig.port;

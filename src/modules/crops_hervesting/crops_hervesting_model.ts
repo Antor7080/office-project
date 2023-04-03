@@ -4,6 +4,7 @@ import { ICropsHarvesting } from "./crops_hervesting_interface";
 const CropsHarvestingSchema: Schema = new mongoose.Schema<ICropsHarvesting>({
     generalInformationID: {
         type: Schema.Types.ObjectId,
+        ref: "GenarelInformation"
 
     },
     fieldSanitation: {

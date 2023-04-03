@@ -26,6 +26,7 @@ export default interface IInterculturalOperation extends Document {
         hormoneUsed: boolean;
         mulchingPaperUsedMango: boolean;
         fenceUsedMango: boolean;
+        wasteManagementMango: boolean;
     };
     betelLeaf: {
         landShadowNotDamp: boolean;

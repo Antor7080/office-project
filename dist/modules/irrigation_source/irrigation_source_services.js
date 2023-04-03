@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getleIrrigationSourceByID = exports.getIrrigationSourceByGeneralInformationID = exports.addIrrigationSource = void 0;
+exports.findOneQuery = exports.addIrrigationSource = void 0;
 const irrigation_source_model_1 = __importDefault(require("./irrigation_source_model"));
 /**
  *
@@ -30,16 +30,7 @@ exports.addIrrigationSource = addIrrigationSource;
  * @param generalInformationID
  * @returns
 */
-const getIrrigationSourceByGeneralInformationID = (generalInformationID) => __awaiter(void 0, void 0, void 0, function* () {
-    return yield irrigation_source_model_1.default.findOne({ generalInformationID });
+const findOneQuery = (info) => __awaiter(void 0, void 0, void 0, function* () {
+    return yield irrigation_source_model_1.default.findOne(info);
 });
-exports.getIrrigationSourceByGeneralInformationID = getIrrigationSourceByGeneralInformationID;
-/**
- *
- * @param id
- * @returns
-*/
-const getleIrrigationSourceByID = (id) => __awaiter(void 0, void 0, void 0, function* () {
-    return yield irrigation_source_model_1.default.findById(id);
-});
-exports.getleIrrigationSourceByID = getleIrrigationSourceByID;
+exports.findOneQuery = findOneQuery;

@@ -17,15 +17,7 @@ export const addIrrigationSource = async (irrigationSourceInfo: IIrrigationSourc
  * @param generalInformationID
  * @returns
 */
-export const getIrrigationSourceByGeneralInformationID = async (generalInformationID: string): Promise<IIrrigationSource | null> => {
-    return await IrrigationSource.findOne({ generalInformationID });
+export const findOneQuery = async (info: object): Promise<IIrrigationSource | null> => {
+    return await IrrigationSource.findOne(info);
 };
 
-/** 
- * 
- * @param id
- * @returns
-*/
-export const getleIrrigationSourceByID = async (id: string): Promise<IIrrigationSource | null> => {
-    return await IrrigationSource.findById(id);
-};

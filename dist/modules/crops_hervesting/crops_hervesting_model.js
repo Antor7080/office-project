@@ -27,6 +27,7 @@ const mongoose_1 = __importStar(require("mongoose"));
 const CropsHarvestingSchema = new mongoose_1.default.Schema({
     generalInformationID: {
         type: mongoose_1.Schema.Types.ObjectId,
+        ref: "GenarelInformation"
     },
     fieldSanitation: {
         isFollowingStepTaken: {

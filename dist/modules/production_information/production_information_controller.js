@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getProductionInformation = exports.addProductionInformation = void 0;
+exports.getByGeneralInformationID = exports.getProductionInformation = exports.addProductionInformation = void 0;
 const errors_1 = require("../../errors");
 const responseHandler_1 = require("../../helpers/responseHandler");
 const production_information_service_1 = require("./production_information_service");
@@ -202,3 +202,79 @@ const getProductionInformation = (req, res, next) => __awaiter(void 0, void 0, v
     }
 });
 exports.getProductionInformation = getProductionInformation;
+/**
+ *
+ * @objective get information of production information by general information id
+ * @endpoint /api/production-information/general-information/:id
+ * @method GET
+ * @reqparam id
+ * @res {
+    "success": true,
+    "code": 201,
+    "data": {
+        "generalInformationID": "642a675e39088961109a93b6",
+        "cropInformation": {
+            "varietyName": "string",
+            "varietyType": "string",
+            "usedInGourpLand": true
+        },
+        "raisingOfSeedlings": {
+            "raising": "string",
+            "seedsWereRaised": "string",
+            "isCowdungUsed": true,
+            "cowdungAmount": 10,
+            "isVarmiCompostUsed": true,
+            "varmiCompostAmount": 10,
+            "isCocodustUsed": true,
+            "cocodustAmount": 10,
+            "isBiofertilizerUsed": true,
+            "biofertilizerAmount": 10,
+            "isOtherUsed": true,
+            "otherAmount": 10,
+            "insectPathogenSymptoms": false,
+            "seedlingAge": 100
+        },
+        "landPreparation": {
+            "plough": "string",
+            "isGroupPreapared": true
+        },
+        "showingTransplanting": {
+            "seedSource": "string",
+            "seedTreatment": true,
+            "fungicideName": "string",
+            "sowingType": "Seedling raised in seedbed",
+            "plantDistance": 10,
+            "rowDistance": 10,
+            "gardenAge": 10,
+            "plantedInGroup": true,
+            "dayDifference": 10
+        },
+        "selectionCropWeeding": {
+            "cropName": "string",
+            "isWeedingPoperTime": true,
+            "firstWeedingDate": "2022-03-25T00:00:00.000Z",
+            "sceondWeedingDate": "2022-03-25T00:00:00.000Z",
+            "thirdWeedingDate": "2022-03-25T00:00:00.000Z",
+            "nextWeedingDate": "2022-03-25T00:00:00.000Z"
+        },
+        "_id": "642a70b8eeed184d8ea665e3",
+        "__v": 0
+    },
+    "message": "Production Information Added Successfully"
+}
+ */
+const getByGeneralInformationID = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const id = req.params.id;
+        const productionInformation = yield (0, production_information_service_1.getOneQuary)({ generalInformationID: id });
+        if (!productionInformation) {
+            throw new errors_1.ApiError((0, responseHandler_1.notFound)(), 'Production Information Not Found');
+        }
+        ;
+        res.ok(productionInformation, 'Production Information Get Successfully');
+    }
+    catch (error) {
+        next(error);
+    }
+});
+exports.getByGeneralInformationID = getByGeneralInformationID;

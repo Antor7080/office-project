@@ -4,34 +4,36 @@ import Joi from "joi";
 const interculturalOperationSchema = Joi.object({
     generalInformationID: Joi.string().required(),
     weedingIntercultural: Joi.object({
-        isCleaned: Joi.boolean(),
-        timelyWeeding: Joi.boolean(),
-        primarilyWeeded: Joi.boolean(),
-        productionLevelCleaned: Joi.boolean(),
-        purifingAgentUsed: Joi.boolean(),
-        treatedChemicalName: Joi.string().allow(null)
-    }),
+        isCleaned: Joi.boolean().required(),
+        timelyWeeding: Joi.boolean().required(),
+        primarilyWeeded: Joi.boolean().required(),
+        productionLevelCleaned: Joi.boolean().required(),
+        purifingAgentUsed: Joi.boolean().required(),
+        treatedChemicalName: Joi.string()
+    }).required(),
     vegetable: Joi.object({
-        vegetableCultivation: Joi.boolean(),
-        mulchingPaperUsed: Joi.boolean(),
-        supportUsed: Joi.boolean(),
-        lightAndAir: Joi.boolean(),
-        animalProtection: Joi.boolean(),
-        isEggPlant: Joi.boolean(),
-        fenceUsed: Joi.boolean(),
-        wasteManagement: Joi.boolean()
-    }),
+        vegetableCultivation: Joi.boolean().required(),
+        mulchingPaperUsed: Joi.boolean().required(),
+        supportUsed: Joi.boolean().required(),
+        lightAndAir: Joi.boolean().required(),
+        animalProtection: Joi.boolean().required(),
+        isEggPlant: Joi.boolean().required(),
+        fenceUsed: Joi.boolean().required(),
+        wasteManagement: Joi.boolean().required()
+    }).required(),
     mango: Joi.object({
-        deadStemRemoved: Joi.boolean(),
-        doesClean: Joi.boolean(),
-        hormoneUsed: Joi.boolean(),
-        mulchingPaperUsedMango: Joi.boolean()
-    }),
+        deadStemRemoved: Joi.boolean().required(),
+        doesClean: Joi.boolean().required(),
+        hormoneUsed: Joi.boolean().required(),
+        mulchingPaperUsedMango: Joi.boolean().required(),
+        fenceUsedMango: Joi.boolean().required(),
+        wasteManagementMango: Joi.boolean().required()
+    }).required(),
     betelLeaf: Joi.object({
-        landShadowNotDamp: Joi.boolean(),
-        supportUsedBetel: Joi.boolean(),
-        animalProtectionBetel: Joi.boolean(),
-        prohibitedEntry: Joi.boolean()
+        landShadowNotDamp: Joi.boolean().required(),
+        supportUsedBetel: Joi.boolean().required(),
+        animalProtectionBetel: Joi.boolean().required(),
+        prohibitedEntry: Joi.boolean().required()
     })
 });
 
@@ -41,7 +43,7 @@ const interculturalOperationValidator = (req: Request, res: Response, next: Next
             abortEarly: false
         });
         if (error) {
-            next(error);
+            return next(error);
         }
         next();
     } catch (error) {

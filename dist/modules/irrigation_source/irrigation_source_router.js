@@ -26,4 +26,5 @@ router.post("/add", irrigation_source_validator_1.default, irrigation_source_con
     * @error   {success, message, error}
     * * @example http://localhost:5000/api/irrigation-source/get/5f9e1b0b0b1b1b1b1b1b1b1b * */
 router.get("/get/:id", irrigation_source_controller_1.getIrrigationSourceInfo);
+router.get("/get-by-general-information-id/:id", irrigation_source_controller_1.getByGeneralInformationID);
 exports.default = router;
