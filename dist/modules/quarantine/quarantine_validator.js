@@ -81,9 +81,8 @@ const quarantinePestDiseseControlValidator = (req, res, next) => {
     const { error } = quarantinePestDiseseControlSchema.validate(req.body, {
         abortEarly: false,
     });
-    console.log(error);
     if (error) {
-        next(error);
+        return next(error);
     }
     next();
 };

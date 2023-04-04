@@ -11,6 +11,7 @@ export const errorConverter = (
   _res: Response,
   next: NextFunction
 ) => {
+  console.log("err", _req);
   let error = err;
   if (!(error instanceof ApiError)) {
     const statusCode =

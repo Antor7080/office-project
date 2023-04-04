@@ -60,7 +60,6 @@ const FertilizerFertilizingSchema = new mongoose_1.Schema({
     fertilizerNamePlant: {
         appliedFertilizer: {
             type: [String],
-            enum: ["Urea", "Potash", "Phosphorus", "Zinc", "Other"]
         },
     },
     totalNumberOfFertilizer: {

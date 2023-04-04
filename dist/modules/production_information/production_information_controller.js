@@ -190,7 +190,6 @@ const getProductionInformation = (req, res, next) => __awaiter(void 0, void 0, v
     try {
         const id = req.params.id;
         const productionInformation = yield (0, production_information_service_1.getOneQuary)({ _id: id });
-        console.log(productionInformation);
         if (!productionInformation) {
             throw new errors_1.ApiError((0, responseHandler_1.notFound)(), 'Production Information Not Found');
         }

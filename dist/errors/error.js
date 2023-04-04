@@ -7,6 +7,7 @@ exports.errorHandler = exports.errorConverter = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
 const ApiError_1 = __importDefault(require("./ApiError"));
 const errorConverter = (err, _req, _res, next) => {
+    console.log("err", _req);
     let error = err;
     if (!(error instanceof ApiError_1.default)) {
         const statusCode = error.statusCode || (error instanceof mongoose_1.default.Error ? 400 : 500);

@@ -78,11 +78,9 @@ const quarantinePestDiseseControlSchema = Joi.object({
 const quarantinePestDiseseControlValidator = (req: Request, res: Response, next: NextFunction) => {
     const { error } = quarantinePestDiseseControlSchema.validate(req.body, {
         abortEarly: false,
-
     });
-    console.log(error);
     if (error) {
-        next(error);
+        return next(error);
     }
     next();
 

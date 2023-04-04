@@ -181,7 +181,7 @@ export const getProductionInformation = async (req: Request, res: Response, next
     try {
         const id: string = req.params.id;
         const productionInformation: IproductionInformation | null = await getOneQuary({ _id: id });
-        console.log(productionInformation);
+    
         if (!productionInformation) {
             throw new ApiError(notFound(), 'Production Information Not Found')
         };
