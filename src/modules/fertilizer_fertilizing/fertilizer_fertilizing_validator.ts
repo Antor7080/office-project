@@ -23,7 +23,7 @@ const FertilizerFertilizingSchema = Joi.object({
         otherQuantity: Joi.number().integer().min(0),
     }).required(),
     fertilizerNamePlant: Joi.object({
-        appliedFertilizer: Joi.array().items(Joi.string().valid('Urea', 'Potash', 'Phosphorus', 'Zinc', 'Other')).required(),
+        appliedFertilizer: Joi.array().items(Joi.string()).required(),
     }).required(),
     totalNumberOfFertilizer: Joi.object({
         vegetable: Joi.number().integer().min(0),

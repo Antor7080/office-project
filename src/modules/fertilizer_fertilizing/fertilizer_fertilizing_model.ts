@@ -61,7 +61,6 @@ const FertilizerFertilizingSchema = new Schema<IFertilizerFertilizing>({
     fertilizerNamePlant: {
         appliedFertilizer: {
             type: [String],
-            enum: ["Urea", "Potash", "Phosphorus", "Zinc", "Other"]
         },
 
     },
