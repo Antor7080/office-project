@@ -44,6 +44,9 @@ server.use('/api/personal-worker-hygiene', personal_worker_hygiene_router_1.defa
 server.use('/api/farmers-expenses-income', farmers_expenses_income_router_1.default);
 server.use(errors_1.errorConverter);
 server.use(errors_1.errorHandler);
+server.get('/', (req, res) => {
+    res.ok('Hello World!');
+});
 const port = dbConfig.port;
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`);

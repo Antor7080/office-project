@@ -49,7 +49,9 @@ server.use('/api/farmers-expenses-income', FarmersExpensesIncomeRouter);
 
 server.use(errorConverter);
 server.use(errorHandler);
-
+server.get('/', (req, res) => {
+    res.ok('Hello World!');
+});
 const port: number = dbConfig.port;
 server.listen(port, () => {
     console.log(`Server is running on port ${port}`);

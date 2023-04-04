@@ -17,7 +17,71 @@ const personal_worker_hygiene_service_1 = require("./personal_worker_hygiene_ser
  * @objective Create Personal Worker Hygiene
  * @endpoint /api/v1/personal-worker-hygiene/add
  * @method POST
- * @reqBody
+ * @reqBody {
+    "generalInformationID": "6427fc064310a9504c8be92b",
+    "fram": {
+        "isRestHouse": true,
+        "isToilet": true,
+        "isDistilledWater": true,
+        "isSoap": true,
+        "isMaterialRoom": true,
+        "isRoamingFree": true,
+        "isHygieneProduct": true,
+        "isMonitoring": true,
+        "isDressingRoom": true
+    },
+    "interculteralOperation": {
+        "isHygieneDressUsed": true,
+        "isStoredProperly": true,
+        "isRefreshed": true,
+        "isCleaned": true,
+        "pesticideApplied": "a",
+        "isRightDirection": true,
+        "daysBeforeHarvest": 10,
+        "isInformationTaken": true,
+        "isHandGlovesUsed": true,
+        "isHygienic": true,
+        "isPersonalHygiene": false,
+        "isAllHygiene": true,
+        "isAllPrincipleMaintained": false
+    }
+}
+*@Resbody {
+    "success": true,
+    "code": 201,
+    "data": {
+        "generalInformationID": "6427fc064310a9504c8be92b",
+        "fram": {
+            "isRestHouse": true,
+            "isToilet": true,
+            "isDistilledWater": true,
+            "isSoap": true,
+            "isMaterialRoom": true,
+            "isRoamingFree": true,
+            "isHygieneProduct": true,
+            "isMonitoring": true,
+            "isDressingRoom": true
+        },
+        "interculteralOperation": {
+            "isHygieneDressUsed": true,
+            "isStoredProperly": true,
+            "isRefreshed": true,
+            "isCleaned": true,
+            "pesticideApplied": "a",
+            "isRightDirection": true,
+            "daysBeforeHarvest": 10,
+            "isInformationTaken": true,
+            "isHandGlovesUsed": true,
+            "isHygienic": true,
+            "isPersonalHygiene": false,
+            "isAllHygiene": true,
+            "isAllPrincipleMaintained": false
+        },
+        "_id": "642b9fb6fb8672bd95eff511",
+        "__v": 0
+    },
+    "message": "Successfully Created."
+}
  */
 const addPersonalWorkerHygieneController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -34,6 +98,48 @@ const addPersonalWorkerHygieneController = (req, res, next) => __awaiter(void 0,
     }
 });
 exports.addPersonalWorkerHygieneController = addPersonalWorkerHygieneController;
+/**
+ *
+ * @objective Get Personal Worker Hygiene by generalInformationID
+ * @endpoint /api/v1/personal-worker-hygiene/get-by-general-info-id/:generalInformationID
+ * @method GET
+ * @resBody {
+    "success": true,
+    "code": 200,
+    "data": {
+        "fram": {
+            "isRestHouse": true,
+            "isToilet": true,
+            "isDistilledWater": true,
+            "isSoap": true,
+            "isMaterialRoom": true,
+            "isRoamingFree": true,
+            "isHygieneProduct": true,
+            "isMonitoring": true,
+            "isDressingRoom": true
+        },
+        "interculteralOperation": {
+            "isHygieneDressUsed": true,
+            "isStoredProperly": true,
+            "isRefreshed": true,
+            "isCleaned": true,
+            "pesticideApplied": "a",
+            "isRightDirection": true,
+            "daysBeforeHarvest": 10,
+            "isInformationTaken": true,
+            "isHandGlovesUsed": true,
+            "isHygienic": true,
+            "isPersonalHygiene": false,
+            "isAllHygiene": true,
+            "isAllPrincipleMaintained": false
+        },
+        "_id": "642b9fb6fb8672bd95eff511",
+        "generalInformationID": "6427fc064310a9504c8be92b",
+        "__v": 0
+    },
+    "message": "Personal Worker Hygiene found successfully"
+}
+ */
 const getInfoByGeneralInfoId = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const generalInformationID = req.params.generalInformationID;
@@ -48,9 +154,50 @@ const getInfoByGeneralInfoId = (req, res, next) => __awaiter(void 0, void 0, voi
     }
 });
 exports.getInfoByGeneralInfoId = getInfoByGeneralInfoId;
+/**
+ * @objective Get Personal Worker Hygiene by id
+ * @endpoint /api/v1/personal-worker-hygiene/get/:id
+ * @method GET
+ * @resBody {
+    "success": true,
+    "code": 200,
+    "data": {
+        "fram": {
+            "isRestHouse": true,
+            "isToilet": true,
+            "isDistilledWater": true,
+            "isSoap": true,
+            "isMaterialRoom": true,
+            "isRoamingFree": true,
+            "isHygieneProduct": true,
+            "isMonitoring": true,
+            "isDressingRoom": true
+        },
+        "interculteralOperation": {
+            "isHygieneDressUsed": true,
+            "isStoredProperly": true,
+            "isRefreshed": true,
+            "isCleaned": true,
+            "pesticideApplied": "a",
+            "isRightDirection": true,
+            "daysBeforeHarvest": 10,
+            "isInformationTaken": true,
+            "isHandGlovesUsed": true,
+            "isHygienic": true,
+            "isPersonalHygiene": false,
+            "isAllHygiene": true,
+            "isAllPrincipleMaintained": false
+        },
+        "_id": "642b9fb6fb8672bd95eff511",
+        "generalInformationID": "6427fc064310a9504c8be92b",
+        "__v": 0
+    },
+    "message": "Personal Worker Hygiene found successfully"
+}
+*/
 const getInfoById = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const _id = req.params._id;
+        const _id = req.params.id;
         const personalWorkerHygiene = yield (0, personal_worker_hygiene_service_1.findOneQuary)({ _id });
         if (!personalWorkerHygiene) {
             throw new errors_1.ApiError((0, responseHandler_1.notFound)(), "Personal Worker Hygiene not found");
