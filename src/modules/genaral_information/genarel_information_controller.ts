@@ -144,6 +144,7 @@ import { addGeneralInformationService, findOneQuery, getGeneralInformationServic
 }
  */
 export const addGeneralInformation = (req: Request, res: Response, next: NextFunction) => {
+    console.log(res.locals.user);
     try {
         const newGenarelInformation: IGenarelInformation = addGeneralInformationService(req.body);
         res.created(newGenarelInformation, 'General Information Added Successfully')

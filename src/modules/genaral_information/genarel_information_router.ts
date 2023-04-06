@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { addGeneralInformation, getGeneralInformation, getGeneralInformationById } from "./genarel_information_controller";
 import genarelInformationValidator from "./genarel_information_validator";
+import {authorization} from "../auth/auth_middleware";
 const router = Router();
 
 /* ? @route   POST api/general-information/add
@@ -11,7 +12,7 @@ const router = Router();
     * @error   {success, message, error}
     * @example http://localhost:5000/api/general-information/add
     * */
-router.post('/add', genarelInformationValidator, addGeneralInformation);
+router.post('/add',/*  authorization(["Farmer", "Admin"]), */ genarelInformationValidator, addGeneralInformation);
 
 
 /*

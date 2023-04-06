@@ -14,11 +14,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findOneQuery = exports.createFertilizerFertilizing = void 0;
 const fertilizer_fertilizing_model_1 = __importDefault(require("./fertilizer_fertilizing_model"));
+/**
+ * @objective add new fertilizer fertilizing
+ * @param fertilizerFertilizing
+ * @returns IFertilizerFertilizing
+ */
 const createFertilizerFertilizing = (fertilizerFertilizing) => __awaiter(void 0, void 0, void 0, function* () {
     const newFertilizerFertilizing = new fertilizer_fertilizing_model_1.default(fertilizerFertilizing);
     return yield newFertilizerFertilizing.save();
 });
 exports.createFertilizerFertilizing = createFertilizerFertilizing;
+/**
+ * @objective get one fertilizer fertilizing
+ * @param query
+ * @returns IFertilizerFertilizing | null
+ *
+ */
 const findOneQuery = (query) => __awaiter(void 0, void 0, void 0, function* () {
     const data = yield fertilizer_fertilizing_model_1.default.findOne(query);
     if (!data)

@@ -14,11 +14,20 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOneById = exports.addInterculturalOperationService = void 0;
 const intercultural_operation_model_1 = __importDefault(require("./intercultural_operation_model"));
+/**
+ * @objective add new intercultural operation
+ * @param interculturalOperationInfo
+ * @returns
+ */
 const addInterculturalOperationService = (interculturalOperationInfo) => __awaiter(void 0, void 0, void 0, function* () {
     const interculturalOperation = new intercultural_operation_model_1.default(interculturalOperationInfo);
     return yield interculturalOperation.save();
 });
 exports.addInterculturalOperationService = addInterculturalOperationService;
+/**
+ * @objective get one intercultural operation
+ * @returns
+ */
 const getOneById = (info) => __awaiter(void 0, void 0, void 0, function* () {
     return yield intercultural_operation_model_1.default.findOne(info);
 });

@@ -14,12 +14,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findOneQuary = exports.addQuarantinePestDiseasesControlService = void 0;
 const quarantine_model_1 = __importDefault(require("./quarantine_model"));
+/**
+ * @objective add new quarantine pest diseases control
+ * @param quarantinePestDiseasesControl
+ * @returns
+ */
 const addQuarantinePestDiseasesControlService = (quarantinePestDiseasesControl) => __awaiter(void 0, void 0, void 0, function* () {
     const newQuarantinePestDiseasesControl = new quarantine_model_1.default(quarantinePestDiseasesControl);
     yield newQuarantinePestDiseasesControl.save();
     return newQuarantinePestDiseasesControl;
 });
 exports.addQuarantinePestDiseasesControlService = addQuarantinePestDiseasesControlService;
+/**
+ * @objective get one quarantine pest diseases control
+ * @param query
+ * @returns
+ */
 const findOneQuary = (query) => __awaiter(void 0, void 0, void 0, function* () {
     const quarantinePestDieases = quarantine_model_1.default.findOne(query);
     return quarantinePestDieases;

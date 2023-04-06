@@ -2,7 +2,7 @@ import IIrrigationSource from './irrigation_source_interface';
 import IrrigationSource from './irrigation_source_model';
 
 /**
- * 
+ * @objective add new irrigation source
  * @param irrigationSourceInfo 
  * @returns 
  */
@@ -13,7 +13,7 @@ export const addIrrigationSource = async (irrigationSourceInfo: IIrrigationSourc
 };
 
 /** \
- * 
+ * @objective get one irrigation source
  * @param generalInformationID
  * @returns
 */

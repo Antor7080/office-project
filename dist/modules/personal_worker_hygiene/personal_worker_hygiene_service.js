@@ -14,11 +14,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findOneQuary = exports.addPersonalWorkerHygiene = void 0;
 const personal_worker_hygiene_model_1 = __importDefault(require("./personal_worker_hygiene_model"));
+/**
+ * @objective add new personal worker hygiene
+ * @param personalWorkerHygiene
+ * @returns
+ */
 const addPersonalWorkerHygiene = (personalWorkerHygiene) => __awaiter(void 0, void 0, void 0, function* () {
     const newPersonalWorkerHygiene = new personal_worker_hygiene_model_1.default(personalWorkerHygiene);
     return newPersonalWorkerHygiene.save();
 });
 exports.addPersonalWorkerHygiene = addPersonalWorkerHygiene;
+/**
+ * @objective get one personal worker hygiene
+ * @param query
+ * @returns
+ */
 const findOneQuary = (query) => __awaiter(void 0, void 0, void 0, function* () {
     return yield personal_worker_hygiene_model_1.default.findOne(query);
 });

@@ -20,6 +20,7 @@ const personal_worker_hygiene_router_1 = __importDefault(require("./modules/pers
 const production_information_router_1 = __importDefault(require("./modules/production_information/production_information_router"));
 const quarantine_router_1 = __importDefault(require("./modules/quarantine/quarantine_router"));
 const user_router_1 = __importDefault(require("./modules/user/user_router"));
+const auth_router_1 = __importDefault(require("./modules/auth/auth_router"));
 const server = (0, express_1.default)();
 server.use((0, cors_1.default)());
 server.use(express_1.default.json());
@@ -44,6 +45,7 @@ server.use('/api/management-packaging', management_packaging_router_1.default);
 server.use('/api/personal-worker-hygiene', personal_worker_hygiene_router_1.default);
 server.use('/api/farmers-expenses-income', farmers_expenses_income_router_1.default);
 server.use('/api/user', user_router_1.default);
+server.use('/api/auth', auth_router_1.default);
 server.use(errors_1.errorConverter);
 server.use(errors_1.errorHandler);
 server.get('/', (req, res) => {

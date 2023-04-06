@@ -15,7 +15,7 @@ const router = (0, express_1.Router)();
     * @error   {success, message, error}
     * @example http://localhost:5000/api/general-information/add
     * */
-router.post('/add', genarel_information_validator_1.default, genarel_information_controller_1.addGeneralInformation);
+router.post('/add', /*  authorization(["Farmer", "Admin"]), */ genarel_information_validator_1.default, genarel_information_controller_1.addGeneralInformation);
 /*
     * @route   GET api/general-information/get
     * @desc    Get General Information

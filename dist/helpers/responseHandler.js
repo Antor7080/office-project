@@ -1,16 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.unProcessable = exports.responseHandler = exports.notFound = exports.internalServerError = void 0;
+exports.notAccepted = exports.unAuthorized = exports.credentialsNotMatch = exports.unProcessable = exports.responseHandler = exports.notFound = exports.internalServerError = void 0;
 const OK = 200;
 const CREATED = 201;
 const BAD_REQUEST = 400;
 const NOT_FOUND = 404;
+const NOT_ACCEPTED = 406;
 const UNPROCESSABLE = 422;
 const INTERNAL_SERVER_ERROR = 500;
+const UNAUTHORIZED = 401;
+const credentialsNotMatch = () => {
+    return "Credentials Not Match";
+};
+exports.credentialsNotMatch = credentialsNotMatch;
+const unAuthorized = () => {
+    return UNAUTHORIZED;
+};
+exports.unAuthorized = unAuthorized;
 const notFound = () => {
     return NOT_FOUND;
 };
 exports.notFound = notFound;
+const notAccepted = () => {
+    return NOT_ACCEPTED;
+};
+exports.notAccepted = notAccepted;
 const unProcessable = () => {
     return UNPROCESSABLE;
 };

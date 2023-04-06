@@ -14,20 +14,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findOneQuery = exports.getGeneralInformationService = exports.addGeneralInformationService = void 0;
 const genarel_information_model_1 = __importDefault(require("./genarel_information_model"));
+/**
+ * @objective add new general information
+ * @param information
+ * @returns IGenarelInformation
+ */
 const addGeneralInformationService = (information) => {
     const newInformation = new genarel_information_model_1.default(information);
     newInformation.save();
     return newInformation;
 };
 exports.addGeneralInformationService = addGeneralInformationService;
+/**
+ * @objective get all general information
+ * @returns
+ */
 const getGeneralInformationService = () => {
     const allInformation = genarel_information_model_1.default.find({});
     return allInformation;
 };
 exports.getGeneralInformationService = getGeneralInformationService;
 /**
- *
- * @param id  get general information by id
+ * @objective get one general information
+ * @param  query
  * @returns
  */
 const findOneQuery = (query) => __awaiter(void 0, void 0, void 0, function* () {

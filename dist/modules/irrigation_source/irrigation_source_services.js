@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.findOneQuery = exports.addIrrigationSource = void 0;
 const irrigation_source_model_1 = __importDefault(require("./irrigation_source_model"));
 /**
- *
+ * @objective add new irrigation source
  * @param irrigationSourceInfo
  * @returns
  */
@@ -26,7 +26,7 @@ const addIrrigationSource = (irrigationSourceInfo) => __awaiter(void 0, void 0, 
 });
 exports.addIrrigationSource = addIrrigationSource;
 /** \
- *
+ * @objective get one irrigation source
  * @param generalInformationID
  * @returns
 */

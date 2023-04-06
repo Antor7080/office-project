@@ -15,6 +15,7 @@ import PersonalWorkerHygieneRouter from "./modules/personal_worker_hygiene/perso
 import ProductionInformationrouter from "./modules/production_information/production_information_router";
 import QuarantinePestDiseasesRouter from "./modules/quarantine/quarantine_router";
 import UserRouter from "./modules/user/user_router";
+import AuthRouter from "./modules/auth/auth_router";
 const server: Application = express();
 server.use(cors());
 server.use(express.json());
@@ -47,6 +48,7 @@ server.use('/api/management-packaging', ManagementPackagingRouter);
 server.use('/api/personal-worker-hygiene', PersonalWorkerHygieneRouter);
 server.use('/api/farmers-expenses-income', FarmersExpensesIncomeRouter);
 server.use('/api/user', UserRouter);
+server.use('/api/auth', AuthRouter)
 
 
 server.use(errorConverter);

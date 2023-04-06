@@ -152,6 +152,7 @@ const genarel_information_services_1 = require("./genarel_information_services")
 }
  */
 const addGeneralInformation = (req, res, next) => {
+    console.log(res.locals.user);
     try {
         const newGenarelInformation = (0, genarel_information_services_1.addGeneralInformationService)(req.body);
         res.created(newGenarelInformation, 'General Information Added Successfully');

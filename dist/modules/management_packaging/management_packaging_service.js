@@ -14,11 +14,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.findOneService = exports.addService = void 0;
 const management_packaging_model_1 = __importDefault(require("./management_packaging_model"));
+/**
+ * @objective add new management packaging
+ * @param data
+ * @returns
+ */
 const addService = (data) => __awaiter(void 0, void 0, void 0, function* () {
     const managementPackaging = new management_packaging_model_1.default(data);
     return yield managementPackaging.save();
 });
 exports.addService = addService;
+/**
+ *
+ * @objective get one management packaging
+ * @param quary
+ * @returns
+*/
 const findOneService = (quary) => __awaiter(void 0, void 0, void 0, function* () {
     return yield management_packaging_model_1.default.findOne(quary);
 });

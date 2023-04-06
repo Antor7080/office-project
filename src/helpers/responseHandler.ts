@@ -4,13 +4,27 @@ const OK = 200;
 const CREATED = 201;
 const BAD_REQUEST = 400;
 const NOT_FOUND = 404;
+const NOT_ACCEPTED = 406;
 const UNPROCESSABLE = 422;
 const INTERNAL_SERVER_ERROR = 500;
+const UNAUTHORIZED = 401;
+
+
+
+const credentialsNotMatch = () => {
+  return  "Credentials Not Match";
+};
+
+const unAuthorized = () => {
+  return  UNAUTHORIZED;
+};
 
 const notFound = () => {
   return NOT_FOUND;
 };
-
+const notAccepted = () => {
+  return NOT_ACCEPTED;
+};
 
 const unProcessable = () => {
   return UNPROCESSABLE;
@@ -103,6 +117,6 @@ const responseHandler = (req: Request, res: Response, next: NextFunction) => {
 };
 
 export {
-  internalServerError, notFound, responseHandler, unProcessable
+  internalServerError, notFound, responseHandler, unProcessable, credentialsNotMatch, unAuthorized, notAccepted
 };
 
