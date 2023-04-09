@@ -72,6 +72,9 @@ const PersonalWorkerHygieneSchema = new mongoose_1.Schema({
             default: false,
             required: true
         },
+        isDAE: {
+            type: Boolean,
+        },
         daysBeforeHarvest: {
             type: Number
         },

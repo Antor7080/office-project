@@ -34,7 +34,7 @@ export const personalWorkerHygieneValidation = Joi.object({
 
 const personalWorkerHygieneValidator = (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { error } = personalWorkerHygieneValidation.validate(req.body, { abortEarly: false });
+    const { error } = personalWorkerHygieneValidation.validate(req.body, { abortEarly: false});
     if (error) {
       return next(error);
     }

@@ -25,6 +25,7 @@ exports.personalWorkerHygieneValidation = joi_1.default.object({
         isCleaned: joi_1.default.boolean().required(),
         pesticideApplied: joi_1.default.string(),
         isRightDirection: joi_1.default.boolean().required(),
+        isDAE: joi_1.default.boolean().required(),
         daysBeforeHarvest: joi_1.default.number(),
         isInformationTaken: joi_1.default.boolean().required(),
         isHandGlovesUsed: joi_1.default.boolean().required(),
