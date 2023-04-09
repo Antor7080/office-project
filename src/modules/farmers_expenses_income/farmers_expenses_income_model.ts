@@ -9,7 +9,7 @@ const FarmersExpensesIncomeSchema = new Schema<IFarmersExpensesIncome>({
     },
     soilTestCost: {
         type: Number, default: 0
-    },
+    },  
     landPreparationCost: {
         type: Number, default: 0
     },

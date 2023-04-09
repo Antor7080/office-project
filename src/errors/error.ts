@@ -42,7 +42,7 @@ export const errorHandler = (
     message,
     ...{ stack: err.stack },
   };
- 
+
 
   res.status(statusCode).send(response);
 };

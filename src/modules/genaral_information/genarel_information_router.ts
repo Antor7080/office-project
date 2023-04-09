@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { addGeneralInformation, getGeneralInformation, getGeneralInformationById } from "./genarel_information_controller";
 import genarelInformationValidator from "./genarel_information_validator";
-import {authorization} from "../auth/auth_middleware";
 const router = Router();
 
-/* ? @route   POST api/general-information/add
+/** 
+    * @route   POST api/general-information/add
     * @desc    Add General Information
     * @access  Public
     * @body    {generalInformation}

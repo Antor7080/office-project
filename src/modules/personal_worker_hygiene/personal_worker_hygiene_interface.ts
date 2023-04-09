@@ -24,6 +24,7 @@ interface InterculteralOperation {
     isCleaned: boolean;
     pesticideApplied: string;
     isRightDirection: boolean;
+    isDAE: boolean;
     daysBeforeHarvest: number;
     isInformationTaken: boolean;
     isHandGlovesUsed: boolean;

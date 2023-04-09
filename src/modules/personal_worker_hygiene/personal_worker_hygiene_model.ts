@@ -73,6 +73,9 @@ const PersonalWorkerHygieneSchema = new Schema<IPersonalWokerHygiene>({
             default: false,
             required: true
         },
+        isDAE: {
+            type: Boolean,
+        },
         daysBeforeHarvest: {
             type: Number
         },

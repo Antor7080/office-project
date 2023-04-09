@@ -21,6 +21,7 @@ export const personalWorkerHygieneValidation = Joi.object({
     isCleaned: Joi.boolean().required(),
     pesticideApplied: Joi.string(),
     isRightDirection: Joi.boolean().required(),
+    isDAE: Joi.boolean().required(),
     daysBeforeHarvest: Joi.number(),
     isInformationTaken: Joi.boolean().required(),
     isHandGlovesUsed: Joi.boolean().required(),

@@ -7,7 +7,8 @@ const express_1 = require("express");
 const genarel_information_controller_1 = require("./genarel_information_controller");
 const genarel_information_validator_1 = __importDefault(require("./genarel_information_validator"));
 const router = (0, express_1.Router)();
-/* ? @route   POST api/general-information/add
+/**
+    * @route   POST api/general-information/add
     * @desc    Add General Information
     * @access  Public
     * @body    {generalInformation}
