@@ -8,6 +8,8 @@ export interface IFarmersExpensesIncome extends Document {
     seedCost: number;
     fertilizerCost: number;
     irrigationCost: number;
+    interCulturalCost: number;
+    transportCost: number;
     laborCost: number;
     otherCost: number;
     totalCost: number;

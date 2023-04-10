@@ -21,8 +21,14 @@ const FarmersExpensesIncomeSchema = new Schema<IFarmersExpensesIncome>({
     },
     irrigationCost: {
         type: Number, default: 0
+    },  
+    interCulturalCost:{
+
     },
     laborCost: {
+        type: Number, default: 0
+    },
+    transportCost: {
         type: Number, default: 0
     },
     otherCost: {

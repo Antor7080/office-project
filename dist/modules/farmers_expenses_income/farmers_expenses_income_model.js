@@ -22,7 +22,11 @@ const FarmersExpensesIncomeSchema = new mongoose_1.Schema({
     irrigationCost: {
         type: Number, default: 0
     },
+    interCulturalCost: {},
     laborCost: {
+        type: Number, default: 0
+    },
+    transportCost: {
         type: Number, default: 0
     },
     otherCost: {

@@ -9,6 +9,8 @@ const FarmersExpensesIncomeJoiSchema = Joi.object({
     seedCost: Joi.number().default(0),
     fertilizerCost: Joi.number().default(0),
     irrigationCost: Joi.number().default(0),
+    interCulturalCost: Joi.number().default(0),
+    transportCost: Joi.number().default(0),
     laborCost: Joi.number().default(0),
     otherCost: Joi.number().default(0),
     totalCost: Joi.number().default(0),
