@@ -17,6 +17,7 @@ const FarmersExpensesIncomeJoiSchema = Joi.object({
     totalProduction: Joi.number().default(0),
     totalSale: Joi.number().default(0),
     totalProfit: Joi.number().default(0),
+    
 });
 
 const FarmersExpensesIncomeValidator = (req: Request, res: Response, next: NextFunction) => {
